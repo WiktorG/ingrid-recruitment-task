@@ -15,7 +15,12 @@ const App = () => (
         <ThemeProvider theme={theme}>
             <GlobalStyles />
             <Container>
-                <Select />
+                <Select
+                    options={[{
+                        value: 4.56,
+                        label: 'USD',
+                    }]}
+                />
             </Container>
             <Footer />
         </ThemeProvider>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -9,30 +9,39 @@ const Select = ({
     options,
     handleChange,
     placeholder,
-    value,
-}) => (
-    <StyledSelect
-        className="react-select"
-        classNamePrefix="react-select"
-        placeholder={placeholder}
-        options={options}
-        handleChange={handleChange}
-        value={value}
-    />
-);
+    defaultValue,
+}) => {
+    const [selectedOption, setSelectedOption] = useState(defaultValue || null);
+
+    const preHandleChange = (newOption) => {
+        setSelectedOption(newOption);
+        handleChange(newOption);
+    };
+
+    return (
+        <StyledSelect
+            className="react-select"
+            classNamePrefix="react-select"
+            placeholder={placeholder}
+            options={options}
+            onChange={preHandleChange}
+            value={selectedOption}
+        />
+    );
+};
 
 Select.propTypes = {
     options: PropTypes.arrayOf(PropTypes.object),
     handleChange: PropTypes.func,
     placeholder: PropTypes.string,
-    value: PropTypes.string,
+    defaultValue: PropTypes.string,
 };
 
 Select.defaultProps = {
     options: [],
     handleChange: () => {},
     placeholder: 'PLN',
-    value: '',
+    defaultValue: '',
 };
 
 
