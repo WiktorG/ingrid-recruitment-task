@@ -6,7 +6,10 @@ import {
 } from './Container.styled';
 
 const Container = ({ children, className }) => (
-    <StyledContainer className={className}>
+    <StyledContainer
+        data-testid="Container"
+        className={className}
+    >
         {children}
     </StyledContainer>
 );
