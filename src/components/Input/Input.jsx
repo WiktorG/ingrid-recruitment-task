@@ -9,13 +9,13 @@ const Input = ({
     className,
     placeholder,
     value,
-    handleChange,
+    onChange,
     type,
 }) => (
     <StyledInput
         data-testid="Input"
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
         placeholder={placeholder}
         className={className}
         type={type}
@@ -24,7 +24,7 @@ const Input = ({
 
 Input.propTypes = {
     className: PropTypes.string,
-    handleChange: PropTypes.func,
+    onChange: PropTypes.func,
     placeholder: PropTypes.string,
     type: PropTypes.oneOf(['text', 'number', 'password']),
     value: PropTypes.string,
@@ -32,7 +32,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
     className: '',
-    handleChange: () => {},
+    onChange: () => {},
     placeholder: '',
     type: 'text',
     value: '',
