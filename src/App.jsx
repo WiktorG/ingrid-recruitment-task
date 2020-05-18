@@ -6,21 +6,12 @@ import GlobalStyles from '~/styled/GlobalStyles';
 
 import store from '~/redux/store';
 
-import Input from '~/components/Input/Input';
-import Container from '~/components/Container/Container';
 import Footer from '~/components/Footer/Footer';
 
 const App = () => (
     <Provider store={store}>
         <ThemeProvider theme={theme}>
             <GlobalStyles />
-            <Container>
-                <span>
-                <Input
-                    placeholder="Lorem ipsum"
-                />
-                </span>
-            </Container>
             <Footer />
         </ThemeProvider>
     </Provider>

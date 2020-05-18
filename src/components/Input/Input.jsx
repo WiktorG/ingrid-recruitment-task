@@ -13,6 +13,7 @@ const Input = ({
     type,
 }) => (
     <StyledInput
+        data-testid="Input"
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
