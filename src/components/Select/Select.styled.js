@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import ReactSelect from 'react-select';
+import ReactDropdown from 'react-dropdown-select';
 
 import colors from '~/utilities/colors';
 
 // I know this isn't the sexiest way.. But it was documented this way! :)
 // I hope this doesn't hurt your eyes
-export const StyledSelect = styled(ReactSelect)`
+export const StyledSelect = styled(ReactDropdown)`
     max-width: 96px;
     outline: none;
     & * { 
