@@ -3,14 +3,15 @@ import ReactSelect from 'react-select';
 
 import colors from '~/utilities/colors';
 
-// It throws warnings but fix is waiting to be merged to the library
+// It throws warnings but fix is waiting to be merged to the library.
+// I would create my own select but I'd rather focus on more important stuff :D
 // TODO: Update package when issue is resolved
 // I know this isn't the sexiest way.. But it was documented this way! :)
-// I hope this doesn't hurt your eyes
+// I hope this doesn't hurt your eyes.
 export const StyledSelect = styled(ReactSelect)`
     max-width: 96px;
     outline: none;
-
+    font-weight: bold;
     & * { 
         outline: none;
     }

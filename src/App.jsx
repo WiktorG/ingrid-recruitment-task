@@ -17,8 +17,8 @@ const App = () => (
             <Container>
                 <Select
                     options={[{
-                        value: 4.56,
-                        label: 'USD',
+                        value: 0,
+                        label: 'PLN',
                     }]}
                 />
             </Container>

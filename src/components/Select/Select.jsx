@@ -43,14 +43,17 @@ Select.propTypes = {
     options: PropTypes.arrayOf(PropTypes.object),
     handleChange: PropTypes.func,
     placeholder: PropTypes.string,
-    defaultValue: PropTypes.string,
+    defaultValue: PropTypes.shape({
+        value: PropTypes.number,
+        label: PropTypes.string,
+    }),
 };
 
 Select.defaultProps = {
     options: [],
     handleChange: () => {},
     placeholder: 'PLN',
-    defaultValue: '',
+    defaultValue: { value: 0, label: 'PLN' },
 };
 
 
