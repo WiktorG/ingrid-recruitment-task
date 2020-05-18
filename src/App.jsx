@@ -6,11 +6,13 @@ import GlobalStyles from '~/styled/GlobalStyles';
 
 import store from '~/redux/store';
 
+import Footer from '~/components/Footer/Footer';
+
 const App = () => (
     <Provider store={store}>
         <ThemeProvider theme={theme}>
             <GlobalStyles />
-            <h1>Hello world</h1>
+            <Footer />
         </ThemeProvider>
     </Provider>
 );
