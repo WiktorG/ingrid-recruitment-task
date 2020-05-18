@@ -5,10 +5,8 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from '~/redux/reducers/rootReducer';
 import rootSaga from '~/redux/sagas/rootSaga';
 
-const devTools = process.env.NODE_ENV !== 'production' && typeof window === 'object'
-    && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
-
+// TODO: fix devtools with tests bug
+const devTools = typeof window === 'object' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : null;
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
     rootReducer,
