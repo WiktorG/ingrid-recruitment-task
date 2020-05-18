@@ -16,7 +16,9 @@ const App = () => (
             <GlobalStyles />
             <Container>
                 <span>
-                <Input />
+                <Input
+                    placeholder="Lorem ipsum"
+                />
                 </span>
             </Container>
             <Footer />
