@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import colors from '~/utilities/colors';
 
 import {
     StyledSelect,
@@ -11,11 +12,11 @@ const Select = ({
     placeholder,
     defaultValue,
 }) => {
-    const [selectedOption, setSelectedOption] = useState(defaultValue || null);
+    const [selected, setSelected] = useState(defaultValue || null);
 
-    const preHandleChange = (newOption) => {
-        setSelectedOption(newOption);
-        handleChange(newOption);
+    const preHandleChange = (selectedOption) => {
+        setSelected(selectedOption);
+        handleChange(selectedOption);
     };
 
     return (
@@ -25,7 +26,15 @@ const Select = ({
             placeholder={placeholder}
             options={options}
             onChange={preHandleChange}
-            value={selectedOption}
+            value={selected}
+            theme={(theme) => ({
+                ...theme,
+                borderRadius: 0,
+                colors: {
+                    ...theme.colors,
+                    primary: colors.green,
+                },
+            })}
         />
     );
 };
