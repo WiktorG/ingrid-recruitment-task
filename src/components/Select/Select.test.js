@@ -10,7 +10,7 @@ test('component should render', async () => {
     expect(selectNode).toBeInTheDocument();
 });
 
-//TODO: Finish this tests
+// TODO: Finish this tests
 test('component should open menu with items on click', async () => {
     renderWithThemeProvider(<Select />);
     const selectLabel = screen.getByText('PLN');
