@@ -6,7 +6,7 @@ import GlobalStyles from '~/styled/GlobalStyles';
 
 import store from '~/redux/store';
 
-import Select from '~/components/Select/Select';
+import Input from '~/components/Input/Input';
 import Container from '~/components/Container/Container';
 import Footer from '~/components/Footer/Footer';
 
@@ -15,12 +15,9 @@ const App = () => (
         <ThemeProvider theme={theme}>
             <GlobalStyles />
             <Container>
-                <Select
-                    options={[{
-                        value: 0,
-                        label: 'PLN',
-                    }]}
-                />
+                <span>
+                <Input />
+                </span>
             </Container>
             <Footer />
         </ThemeProvider>

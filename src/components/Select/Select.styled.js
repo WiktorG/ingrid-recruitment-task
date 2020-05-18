@@ -11,7 +11,7 @@ import colors from '~/utilities/colors';
 export const StyledSelect = styled(ReactSelect)`
     max-width: 96px;
     outline: none;
-    font-weight: bold;
+
     & * { 
         outline: none;
     }
@@ -68,7 +68,7 @@ export const StyledSelect = styled(ReactSelect)`
 
     .react-select__indicator {
         padding: 0;
-        padding-right: 12px;
+        padding-right: 17px;
         color: ${colors.white};
         &:hover {
             color: ${colors.white};
