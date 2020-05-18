@@ -6,14 +6,17 @@ import GlobalStyles from '~/styled/GlobalStyles';
 
 import store from '~/redux/store';
 
-import Footer from '~/components/Footer/Footer';
+import Select from '~/components/Select/Select';
 import Container from '~/components/Container/Container';
+import Footer from '~/components/Footer/Footer';
 
 const App = () => (
     <Provider store={store}>
         <ThemeProvider theme={theme}>
             <GlobalStyles />
-            <Container><div>123</div></Container>
+            <Container>
+                <Select />
+            </Container>
             <Footer />
         </ThemeProvider>
     </Provider>
