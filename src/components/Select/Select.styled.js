@@ -10,6 +10,7 @@ import colors from '~/utilities/colors';
 // I hope this doesn't hurt your eyes.
 export const StyledSelect = styled(ReactSelect)`
     max-width: 96px;
+    min-width: 96px;
     outline: none;
 
     & * { 
