@@ -20,7 +20,8 @@ const Select = ({
 
     return (
         <StyledSelect
-            className="react-dropdown"
+            className="react-select"
+            classNamePrefix="react-select"
             placeholder={placeholder}
             options={options}
             onChange={preHandleChange}

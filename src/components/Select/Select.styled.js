@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import ReactDropdown from 'react-dropdown-select';
+import ReactSelect from 'react-select';
 
 import colors from '~/utilities/colors';
 
+// It throws warnings but fix is waiting to be merged to the library
+// TODO: Update package when issue is resolved
 // I know this isn't the sexiest way.. But it was documented this way! :)
 // I hope this doesn't hurt your eyes
-export const StyledSelect = styled(ReactDropdown)`
+export const StyledSelect = styled(ReactSelect)`
     max-width: 96px;
     outline: none;
     & * { 
