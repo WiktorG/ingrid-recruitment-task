@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IoMdArrowRoundForward } from 'react-icons/io';
 import screens from '~/utilities/screens';
 import colors from '~/utilities/colors';
 
@@ -38,4 +39,11 @@ export const StyledInputWrapper = styled.span`
 
 export const StyledInput = styled(Input)`
     max-width: 187px;
+`;
+
+export const StyledArrowIcon = styled(IoMdArrowRoundForward)`
+    font-size: 1.2em;
+    color: ${colors.font};
+    margin-left: 4px;
+    margin-right: 4px;
 `;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 import Select from '~/components/Select/Select';
 
 import {
@@ -9,6 +8,7 @@ import {
     StyledForm,
     StyledInputWrapper,
     StyledInput,
+    StyledArrowIcon,
 } from './CurrencyConverter.styled';
 
 const CurrencyConverter = () => {
@@ -36,6 +36,7 @@ const CurrencyConverter = () => {
                         onChange={(e) => setInitialAmount(e.target.value)}
                     />
                 </StyledInputWrapper>
+                <StyledArrowIcon />
                 <StyledInputWrapper>
                     <StyledInput
                         value={initialAmount}
