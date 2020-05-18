@@ -17,4 +17,8 @@ export const StyledInput = styled.input`
         font-size: 1em;
         color: ${colors.font};
     }
+    @media ${screens.md} {
+        min-height: 43px;
+        font-size: 0.93em;
+    }
 `;
