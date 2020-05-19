@@ -27,12 +27,6 @@ const CurrencyConverter = () => {
                     <Select
                         options={[{
                             label: 'PLN',
-                            value: 123,
-                        }, {
-                            label: 'USD',
-                            value: 22,
-                        }, {
-                            label: 'JPN',
                             value: 1,
                         }]}
                     />
@@ -49,14 +43,8 @@ const CurrencyConverter = () => {
                     />
                     <Select
                         options={[{
-                            label: 'PLN',
-                            value: 123,
-                        }, {
-                            label: 'USD',
-                            value: 22,
-                        }, {
-                            label: 'JPN',
-                            value: 1,
+                            label: 'EUR',
+                            value: 4,
                         }]}
                     />
                 </StyledInputWrapper>

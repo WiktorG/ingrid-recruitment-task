@@ -12,7 +12,7 @@ const Select = ({
     placeholder,
     defaultValue,
 }) => {
-    const [selected, setSelected] = useState(defaultValue || null);
+    const [selected, setSelected] = useState(defaultValue || options[0]);
 
     const preHandleChange = (selectedOption) => {
         setSelected(selectedOption);
@@ -53,7 +53,7 @@ Select.defaultProps = {
     options: [],
     handleChange: () => {},
     placeholder: 'PLN',
-    defaultValue: { value: 0, label: 'PLN' },
+    defaultValue: null,
 };
 
 
