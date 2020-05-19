@@ -29,6 +29,7 @@ const currenciesReducer = (state = initialState, action) => {
             ...state,
             currentCurrency: {
                 ...state.currentCurrency,
+                ...action.currencyRatesData,
                 isPending: false,
             },
         };

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import api from '~/etc/api';
+import { useDispatch } from 'react-redux';
+
+import { currencyRatesRequest } from '~/redux/actions/currenciesActions';
 
 import Select from '~/components/Select/Select';
 
@@ -13,11 +15,12 @@ import {
 } from './CurrencyConverter.styled';
 
 const CurrencyConverter = () => {
+    const dispatch = useDispatch();
     const [initialAmount, setInitialAmount] = useState(0);
 
     useEffect(() => {
-        api.currencies.latest().then((resp) => console.log(resp));
-    }, []);
+        dispatch(currencyRatesRequest('PLN'));
+    }, [dispatch]);
 
     return (
         <StyledCurrencyConverter>
