@@ -48,6 +48,7 @@ const CurrencyUpdate = () => {
                     value={dateFrom}
                     onChange={(date) => setDateFrom(date)}
                     minDate={new Date('1999-01-04')}
+                    maxDate={dateTo || new Date()}
                 />
                 <StyledIconHolder>
                     <StyledArrow />
