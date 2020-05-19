@@ -3,17 +3,17 @@ import React from 'react';
 import {
     StyledCurrencyTimeline,
     StyledTitle,
-    StyledInfoWrapper,
-    StyledError,
-    StyledRate
+    StyledForm,
 } from './CurrencyTimeline.styled';
 
-const CurrencyUpdate = () => {
-    return (
-        <StyledCurrencyTimeline>
-            <StyledTitle>Currency timeline</StyledTitle>
-        </StyledCurrencyTimeline>
-    )
-}
+const CurrencyUpdate = () => (
+    <StyledCurrencyTimeline>
+        <StyledTitle>Currency timeline</StyledTitle>
+        <StyledForm>
+
+        </StyledForm>
+    </StyledCurrencyTimeline>
+)
+
 
 export default CurrencyUpdate;
