@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { currencyRatesRequest } from '~/redux/actions/currenciesActions';
+import {
+    currentCurrency as currentCurrencySelector,
+    currenciesSymbols as currenciesSymbolsSelector,
+} from '~/redux/selectors/currenciesSelectors';
 
 import Select from '~/components/Select/Select';
 
@@ -16,11 +20,16 @@ import {
 
 const CurrencyConverter = () => {
     const dispatch = useDispatch();
+    const currentCurrency = useSelector(currentCurrencySelector);
+    const currenciesSymbols = useSelector(currenciesSymbolsSelector);
     const [initialAmount, setInitialAmount] = useState(0);
 
     useEffect(() => {
         dispatch(currencyRatesRequest('PLN'));
     }, [dispatch]);
+
+    console.log(currentCurrency, currenciesSymbols);
+
 
     return (
         <StyledCurrencyConverter>

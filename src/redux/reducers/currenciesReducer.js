@@ -22,7 +22,7 @@ const currenciesReducer = (state = initialState, action) => {
         return {
             ...state,
             current: {
-                ...state.currentCurrency,
+                ...state.current,
                 isPending: true,
             },
         };
@@ -30,7 +30,7 @@ const currenciesReducer = (state = initialState, action) => {
         return {
             ...state,
             current: {
-                ...state.currentCurrency,
+                ...state.current,
                 ...action.currencyRatesData,
                 isPending: false,
             },
@@ -39,7 +39,7 @@ const currenciesReducer = (state = initialState, action) => {
         return {
             ...state,
             current: {
-                ...state.currentCurrency,
+                ...state.current,
                 isPending: false,
                 error: 'Something went wrong',
             },
