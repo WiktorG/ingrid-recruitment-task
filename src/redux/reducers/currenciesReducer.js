@@ -39,9 +39,9 @@ const currenciesReducer = (state = initialState, action) => {
         return {
             ...state,
             current: {
-                ...action.current,
+                ...state.current,
                 isPending: false,
-                error: 'Something went wrong',
+                error: action.error,
             },
         };
     case SET_CURRENCIES_SYMBOLS:

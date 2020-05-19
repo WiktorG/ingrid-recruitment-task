@@ -52,12 +52,24 @@ export const StyledArrowIcon = styled(IoMdArrowRoundForward)`
     margin-right: 4px;
 `;
 
-export const StyledRate = styled.span`
-    display: block;
+export const StyledInfoWrapper = styled.span`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
     max-width: 585px;
     min-height: 19px;
-    width: 100%;
+    margin-top: 2px;
+`;
+
+export const StyledError = styled.span`
+    text-align: left;
+    font-weight: bold;
+    color: ${colors.red};
+`;
+
+export const StyledRate = styled.span`
+    margin-left: auto;
     text-align: right;
     font-weight: bold;
-    margin-top: 2px;
 `;

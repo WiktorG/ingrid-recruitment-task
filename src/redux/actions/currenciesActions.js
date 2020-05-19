@@ -11,6 +11,6 @@ export const currencyRatesSuccess = (currencyRatesData) => ({
     type: CURRENCY_RATES_SUCCESS,
     currencyRatesData,
 });
-export const currencyRatesError = () => ({ type: CURRENCY_RATES_ERROR });
+export const currencyRatesError = (error) => ({ type: CURRENCY_RATES_ERROR, error });
 
 export const setCurrenciesSymbols = (symbols) => ({ type: SET_CURRENCIES_SYMBOLS, symbols });
