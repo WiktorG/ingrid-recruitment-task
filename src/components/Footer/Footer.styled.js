@@ -21,13 +21,14 @@ export const StyledLink = styled.a`
     margin-right: auto;
     text-decoration: none;
     color: ${colors.green};
-    font-size: 2.5em;
+    font-size: 1.7em;
     font-weight: bold;
-    @media ${screens.sm} {
+    @media ${screens.mobileL} {
         font-size: 2em;
     }
-    @media ${screens.xs} {
-        font-size: 1.7em;
+    @media ${screens.mobileXL} {
+        font-size: 2.15em;
+
     }
 `;
 
