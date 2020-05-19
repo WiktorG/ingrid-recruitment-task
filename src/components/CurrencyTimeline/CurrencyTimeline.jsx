@@ -59,7 +59,7 @@ const CurrencyUpdate = () => {
             </StyledForm>
         </StyledCurrencyTimeline>
     );
-}
+};
 
 
 export default CurrencyUpdate;

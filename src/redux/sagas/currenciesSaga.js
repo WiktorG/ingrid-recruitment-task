@@ -43,4 +43,4 @@ export function* currencyHistorySaga({
         base,
     });
     console.log(data);
-};
+}
