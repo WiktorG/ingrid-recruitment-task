@@ -2,16 +2,18 @@ import {
     CURRENCY_RATES_REQUEST,
     CURRENCY_RATES_SUCCESS,
     CURRENCY_RATES_ERROR,
+    SET_CURRENCIES_SYMBOLS,
 } from '~/redux/actions/currenciesActions';
 
 const initialState = {
-    currentCurrency: {
+    current: {
         isPending: false,
         error: false,
         base: 'PLN',
         date: '',
         rates: {},
     },
+    symbols: ['PLN', 'EUR'],
 };
 
 const currenciesReducer = (state = initialState, action) => {
@@ -19,7 +21,7 @@ const currenciesReducer = (state = initialState, action) => {
     case CURRENCY_RATES_REQUEST:
         return {
             ...state,
-            currentCurrency: {
+            current: {
                 ...state.currentCurrency,
                 isPending: true,
             },
@@ -27,7 +29,7 @@ const currenciesReducer = (state = initialState, action) => {
     case CURRENCY_RATES_SUCCESS:
         return {
             ...state,
-            currentCurrency: {
+            current: {
                 ...state.currentCurrency,
                 ...action.currencyRatesData,
                 isPending: false,
@@ -36,11 +38,16 @@ const currenciesReducer = (state = initialState, action) => {
     case CURRENCY_RATES_ERROR:
         return {
             ...state,
-            currentCurrency: {
+            current: {
                 ...state.currentCurrency,
                 isPending: false,
                 error: 'Something went wrong',
             },
+        };
+    case SET_CURRENCIES_SYMBOLS:
+        return {
+            ...state,
+            symbols: [...state.symbols],
         };
     default:
         return state;

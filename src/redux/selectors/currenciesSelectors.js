@@ -1,1 +1,1 @@
-export const currentCurrency = (state) => state.currentCurrency;
+export const currentCurrency = (state) => state.currencies.current;
