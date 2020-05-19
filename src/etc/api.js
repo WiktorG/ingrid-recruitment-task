@@ -1,8 +1,9 @@
-import axios from 'axios';
+import axios from './axios';
 
-const apiUrl = 'https://api.exchangeratesapi.io/';
-const instance = axios.create({
-    baseURL: apiUrl,
-});
+const api = {
+    currencies: {
+        latest: async () => axios.get('/latest?base=PLN'),
+    },
+};
 
-export default instance;
+export default api;
