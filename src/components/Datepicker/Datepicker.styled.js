@@ -72,4 +72,9 @@ export const StyledDatePicker = styled(DatePicker)`
         background: ${colors.lightGreen};
         
     }
+
+    & .react-calendar__tile--active {
+        background: ${colors.green};
+        color: ${colors.white};
+    }
 `;

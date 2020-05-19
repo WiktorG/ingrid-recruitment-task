@@ -1,6 +1,6 @@
 export default {
     green: '#38B6AB',
-    lightGreen: '#94D2CC',
+    lightGreen: '#A4E2DC',
     white: '#FFFFFF',
     font: '#282828',
     red: '#FF0000',
