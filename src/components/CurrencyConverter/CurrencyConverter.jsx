@@ -20,16 +20,44 @@ import {
 
 const CurrencyConverter = () => {
     const dispatch = useDispatch();
-    const currentCurrency = useSelector(currentCurrencySelector);
+    const { rates, ...currentCurrency } = useSelector(currentCurrencySelector);
     const currenciesSymbols = useSelector(currenciesSymbolsSelector);
+    // initialSymbol is set in store :)
     const [initialAmount, setInitialAmount] = useState(0);
+    const [convertedSymbol, setConvertedSymbol] = useState('EUR');
+    const [convertedAmount, setConvertedAmount] = useState(0);
 
     useEffect(() => {
         dispatch(currencyRatesRequest('PLN'));
     }, [dispatch]);
 
-    const initialSelectOptions = currenciesSymbols.map((symbol) => ({ label: symbol, value: symbol }));
-    const convertedSelectOptions = [...initialSelectOptions].filter(({ value }) => value !== currentCurrency.base);
+    const handleInitialSymbolChange = ({ value }) => {
+        dispatch(currencyRatesRequest(value));
+        setConvertedAmount(initialAmount * rates[value]);
+    };
+
+    const handleInitialAmountChange = (e) => {
+        setInitialAmount(e.target.value);
+        setConvertedAmount(parseFloat(e.target.value) * rates[convertedSymbol]);
+    };
+
+    const handleConvertedAmountChange = (e) => {
+        setConvertedAmount(e.target.value);
+        setInitialAmount(parseFloat(e.target.value) * (1 / rates[convertedSymbol]));
+    };
+
+    const handleConvertedSymbolChange = ({ value }) => {
+        setConvertedSymbol(value);
+        setInitialAmount(initialAmount * (1 / rates[value]));
+    };
+
+    const initialSelectOptions = currenciesSymbols
+        .map((symbol) => ({
+            label: symbol,
+            value: symbol,
+        }));
+    const convertedSelectOptions = [...initialSelectOptions]
+        .filter(({ value }) => value !== currentCurrency.base);
 
     return (
         <StyledCurrencyConverter>
@@ -38,20 +66,22 @@ const CurrencyConverter = () => {
                 <StyledInputWrapper>
                     <Select
                         options={initialSelectOptions}
+                        onChange={handleInitialSymbolChange}
                     />
                     <StyledInput
                         value={initialAmount}
-                        onChange={(e) => setInitialAmount(e.target.value)}
+                        onChange={handleInitialAmountChange}
                     />
                 </StyledInputWrapper>
                 <StyledArrowIcon />
                 <StyledInputWrapper>
                     <StyledInput
-                        value={initialAmount}
-                        onChange={(e) => setInitialAmount(e.target.value)}
+                        value={convertedAmount}
+                        onChange={handleConvertedAmountChange}
                     />
                     <Select
                         options={convertedSelectOptions}
+                        onChange={handleConvertedSymbolChange}
                     />
                 </StyledInputWrapper>
             </StyledForm>

@@ -44,7 +44,7 @@ Select.propTypes = {
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     defaultValue: PropTypes.shape({
-        value: PropTypes.number,
+        value: PropTypes.string,
         label: PropTypes.string,
     }),
 };
@@ -52,7 +52,7 @@ Select.propTypes = {
 Select.defaultProps = {
     options: [],
     onChange: () => {},
-    placeholder: 'PLN',
+    placeholder: '$',
     defaultValue: null,
 };
 
