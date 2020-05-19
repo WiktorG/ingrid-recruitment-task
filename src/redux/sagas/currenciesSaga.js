@@ -22,7 +22,7 @@ export function* currencyRatesSaga({ currencySymbol }) {
         */
         const symbols = Object.keys(data.rates).map((symbol) => symbol);
         const storedSymbols = yield select(currenciesSymbolsSelector);
-        if (symbols.length === storedSymbols.length) {
+        if (symbols.length !== storedSymbols.length) {
             yield put(setCurrenciesSymbols(symbols));
         }
     } catch (err) {
