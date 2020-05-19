@@ -30,6 +30,7 @@ const DatePicker = ({
             onChange={onChange}
             minDate={minDate}
             maxDate={maxDate}
+            format="y/MM/dd"
             dayPlaceholder="dd"
             monthPlaceholder="mm"
             yearPlaceholder="yyyy"

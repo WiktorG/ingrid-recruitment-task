@@ -29,3 +29,18 @@ export function* currencyRatesSaga({ currencySymbol }) {
         yield put(currencyRatesError('Something went wrong - try again later'));
     }
 }
+
+export function* currencyHistorySaga({
+    dateFrom,
+    dateTo,
+    base,
+    against,
+}) {
+    const { data } = yield call(api.currencies.history, {
+        dateFrom,
+        dateTo,
+        against,
+        base,
+    });
+    console.log(data);
+};

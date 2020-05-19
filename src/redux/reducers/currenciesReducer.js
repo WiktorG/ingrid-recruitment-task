@@ -21,6 +21,8 @@ const initialState = {
         error: false,
         dateFrom: '',
         dateTo: '',
+        base: 'PLN',
+        against: 'EUR',
         rates: {},
     },
 };
@@ -28,6 +30,7 @@ const initialState = {
 /*
     Currencies in Timeline are taken from Converter, eg.
     I select PLN and EUR then I show graph for course of PLN against EUR
+    See CURRENCY_RATES_SUCCESS and SET_CONVERT_TO_CURRENCY
 */
 
 const currenciesReducer = (state = initialState, action) => {
@@ -48,6 +51,10 @@ const currenciesReducer = (state = initialState, action) => {
                 ...action.currencyRatesData,
                 isPending: false,
             },
+            timeline: {
+                ...state.timeline,
+                base: action.currencyRatesData.base,
+            },
         };
     case CURRENCY_RATES_ERROR:
         return {
@@ -64,6 +71,10 @@ const currenciesReducer = (state = initialState, action) => {
             current: {
                 ...state.current,
                 convertTo: action.symbol,
+            },
+            timeline: {
+                ...state.timeline,
+                against: action.symbol,
             },
         };
     case SET_CURRENCIES_SYMBOLS:
