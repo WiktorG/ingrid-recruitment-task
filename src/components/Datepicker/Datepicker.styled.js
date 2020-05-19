@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 import DatePicker from 'react-date-picker';
+import screens from '~/utilities/screens';
 import colors from '~/utilities/colors';
 
 export const StyledWrapper = styled.div`
     position: relative;
+    width: 100%;
+    @media ${screens.mobileXL} {
+        margin-top: 0;
+        max-width: 207px;
+    }
 `;
 
 export const StyledPlaceholder = styled.span`
@@ -15,7 +21,7 @@ export const StyledPlaceholder = styled.span`
 `;
 
 // Again not the sexiest way :(
-export const StyledDatepicker = styled(DatePicker)`
+export const StyledDatePicker = styled(DatePicker)`
     display: inline-block;
     border-radius: 0;
     border: none;
@@ -23,7 +29,7 @@ export const StyledDatepicker = styled(DatePicker)`
     font-size: 1em;
     outline: none;
     font-family: 'Montserrat';
-
+    width: 100%;
     & * {
         font-family: inherit;
         color: ${colors.font};
@@ -33,7 +39,7 @@ export const StyledDatepicker = styled(DatePicker)`
     & .react-date-picker__wrapper {
         font-family: 'Montserrat';
         min-height: 46px;
-        min-width: 196px;
+        width: 100%;
         background-color: ${colors.white};
         border: none;
         border-radius: none;

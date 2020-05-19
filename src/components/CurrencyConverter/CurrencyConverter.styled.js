@@ -18,10 +18,12 @@ export const StyledCurrencyConverter = styled(Container)`
 export const StyledTitle = styled.h2`
     margin-top: 0;
     margin-bottom: 17px;
-    margin-right: auto;
+    text-align: center;
     font-size: 1.4em;
     color: ${colors.font};
     @media ${screens.tablet} {
+        margin-right: auto;
+        text-align: left;
         font-size: 1.56em;
     }
 `;
@@ -64,8 +66,8 @@ export const StyledArrowWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 70%;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 7px;
+    margin-right: 7px;
     font-size: 1.2em;
     color: ${colors.font};
     @media ${screens.mobileXL} {

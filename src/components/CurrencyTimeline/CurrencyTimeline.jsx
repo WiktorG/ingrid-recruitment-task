@@ -1,19 +1,27 @@
 import React from 'react';
 
-import Datepicker from '~/components/Datepicker/Datepicker';
 
 import {
     StyledCurrencyTimeline,
     StyledTitle,
     StyledForm,
+    StyledDatePicker,
+    StyledIconHolder,
+    StyledArrow,
 } from './CurrencyTimeline.styled';
 
 const CurrencyUpdate = () => (
     <StyledCurrencyTimeline>
         <StyledTitle>Currency timeline</StyledTitle>
         <StyledForm>
-            <Datepicker
+            <StyledDatePicker
                 placeholder="Date from"
+            />
+            <StyledIconHolder>
+                <StyledArrow />
+            </StyledIconHolder>
+            <StyledDatePicker
+                placeholder="Date to"
             />
         </StyledForm>
     </StyledCurrencyTimeline>

@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import { IoMdArrowRoundForward } from 'react-icons/io';
 import screens from '~/utilities/screens';
 import colors from '~/utilities/colors';
 
 import Container from '~/components/Container/Container';
+import DatePicker from '~/components/DatePicker/DatePicker';
+import Select from '~/components/Select/Select';
 
 export const StyledCurrencyTimeline = styled(Container)`
     align-items: center;
@@ -16,24 +19,58 @@ export const StyledCurrencyTimeline = styled(Container)`
 export const StyledTitle = styled.h2`
     margin-top: 0;
     margin-bottom: 17px;
-    margin-right: auto;
+    text-align: center;
     font-size: 1.4em;
     color: ${colors.font};
     @media ${screens.tablet} {
+        margin-right: auto;
+        text-align: left;
         font-size: 1.56em;
     }
 `;
 
 export const StyledForm = styled.form`
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-content: center;
     align-items: center;
     max-width: 585px;
     width: 100%;
+    margin-top: 10px;
     @media ${screens.mobileXL} {
         flex-direction: row;
+    }
+`;
+
+export const StyledDatePicker = styled(DatePicker)`
+    max-width: unset;
+    width: 100%;
+    @media ${screens.mobileXL} {
+        margin-top: 0;
+    }
+`;
+
+export const StyledIconHolder = styled.div`
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 19px;
+    margin-left: 7px;
+    margin-right: 7px;
+`;
+
+
+export const StyledArrow = styled(IoMdArrowRoundForward)`
+    margin-top: 3px;
+    transform: rotate(90deg) translateX(-1.5px);
+    font-size: 1.2em;
+    @media ${screens.mobileXL} {
+        margin-top: 0;
+        transform: rotate(0deg);
     }
 `;
 

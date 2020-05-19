@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import {
     StyledWrapper,
     StyledPlaceholder,
-    StyledDatepicker,
-} from './Datepicker.styled';
+    StyledDatePicker,
+} from './DatePicker.styled';
 
 const DatePicker = ({
     className,
@@ -16,13 +16,15 @@ const DatePicker = ({
     minDate,
     maxDate,
 }) => (
-    <StyledWrapper>
+    <StyledWrapper
+        className={className}
+    >
         <StyledPlaceholder>
             {placeholder}
         </StyledPlaceholder>
-        <StyledDatepicker
-            className={`custom-date-picker ${className}`}
-            calendarClassName={`custom-calendar ${className}`}
+        <StyledDatePicker
+            className="custom-date-picker"
+            calendarClassName="custom-calendar"
             value={value}
             onBlur={onBlur}
             onChange={onChange}
