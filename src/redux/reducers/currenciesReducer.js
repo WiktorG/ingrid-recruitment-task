@@ -4,6 +4,9 @@ import {
     CURRENCY_RATES_ERROR,
     SET_CONVERT_TO_CURRENCY,
     SET_CURRENCIES_SYMBOLS,
+    CURRENCY_HISTORY_REQUEST,
+    CURRENCY_HISTORY_SUCCESS,
+    CURRENCY_HISTORY_ERROR,
 } from '~/redux/actions/currenciesActions';
 
 const initialState = {
@@ -32,6 +35,8 @@ const initialState = {
     I select PLN and EUR then I show graph for course of PLN against EUR
     See CURRENCY_RATES_SUCCESS and SET_CONVERT_TO_CURRENCY
 */
+
+// TODO: RENAME TIMELINE TO HISTORY EVERYWHERE
 
 const currenciesReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -81,6 +86,10 @@ const currenciesReducer = (state = initialState, action) => {
         return {
             ...state,
             symbols: [...action.symbols],
+        };
+    case CURRENCY_HISTORY_REQUEST:
+        return {
+            ...state,
         };
     default:
         return state;

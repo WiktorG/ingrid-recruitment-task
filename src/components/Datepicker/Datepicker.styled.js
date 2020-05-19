@@ -26,10 +26,13 @@ export const StyledDatePicker = styled(DatePicker)`
     border-radius: 0;
     border: none;
     -webkit-appearance: none;
-    font-size: 1em;
+    font-size: 0.9em;
     outline: none;
     font-family: 'Montserrat';
     width: 100%;
+    @media ${screens.mobileXL} {
+        font-size: 1em;
+    }
     & * {
         font-family: inherit;
         color: ${colors.font};
