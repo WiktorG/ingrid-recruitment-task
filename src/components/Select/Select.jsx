@@ -11,6 +11,7 @@ const Select = ({
     onChange,
     placeholder,
     defaultValue,
+    className
 }) => {
     const [selected, setSelected] = useState(defaultValue || options[0]);
 
@@ -21,7 +22,7 @@ const Select = ({
 
     return (
         <StyledSelect
-            className="react-select"
+            className={`${className} react-select`}
             classNamePrefix="react-select"
             placeholder={placeholder}
             options={options}
@@ -47,6 +48,7 @@ Select.propTypes = {
         value: PropTypes.string,
         label: PropTypes.string,
     }),
+    className: PropTypes.string,
 };
 
 Select.defaultProps = {
@@ -54,6 +56,7 @@ Select.defaultProps = {
     onChange: () => {},
     placeholder: '$',
     defaultValue: null,
+    className: '',
 };
 
 
