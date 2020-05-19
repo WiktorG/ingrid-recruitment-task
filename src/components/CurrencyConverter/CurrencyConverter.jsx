@@ -35,7 +35,9 @@ const CurrencyConverter = () => {
         if (parseFloat(amount) < 0 || amount === '') {
             return 0;
         }
-        if (amount.toString().split('.')[1] && amount.toString().split('.')[1].length > 2) {
+        // if string has more numbers after dot or comma than 2 - I cut them out
+        const [, afterComma] = amount.toString().split('.');
+        if (afterComma && afterComma.length > 2) {
             return parseFloat(amount).toFixed(2);
         }
         return parseFloat(amount);
