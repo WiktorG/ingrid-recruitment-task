@@ -6,19 +6,24 @@ export const StyledInput = styled.input`
     display: inline-block;
     border-radius: 0;
     border: none;
-    min-height: 46px;
+    min-height: 42px;
     padding-left: 19px;
     padding-right: 19px;
     -webkit-appearance: none;
     font-size: 1em;
+    font-size: 0.9em;
     outline: none;
     &::placeholder {
         font-family: 'Montserrat';
-        font-size: 1em;
+        font-size: 0.9em;
         color: ${colors.font};
+        
     }
-    @media ${screens.md} {
-        min-height: 43px;
-        font-size: 0.93em;
+    @media ${screens.mobileXL} {
+        &::placeholder {
+            font-size: 1em;
+        }
+        min-height: 46px;
+        font-size: 1em;
     }
 `;

@@ -23,7 +23,10 @@ const GlobalStyle = createGlobalStyle`
         
         &[type=number] {
             -moz-appearance: textfield;
-
+        }
+        
+        &::placeholder {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
     }
 `;

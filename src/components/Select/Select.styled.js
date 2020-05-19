@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import ReactSelect from 'react-select';
 
 import colors from '~/utilities/colors';
+import screens from '~/utilities/screens';
 
 // It throws warnings but fix is waiting to be merged to the library.
 // I would create my own select but I'd rather focus on more important stuff :D
@@ -21,7 +22,12 @@ export const StyledSelect = styled(ReactSelect)`
         border-radius: 0;
         border: none;
         background-color: ${colors.green};
-        height: 46px;
+        height: 42px;
+        font-size: 0.9em;
+        @media ${screens.mobileXL} {
+            min-height: 46px;
+            font-size: 1em;
+        }
     }
 
     .react-select__control--is-focused {
