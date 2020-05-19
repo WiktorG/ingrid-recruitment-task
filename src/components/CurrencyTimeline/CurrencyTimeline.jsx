@@ -47,6 +47,7 @@ const CurrencyUpdate = () => {
                     placeholder="Date from"
                     value={dateFrom}
                     onChange={(date) => setDateFrom(date)}
+                    minDate={new Date('1999-01-04')}
                 />
                 <StyledIconHolder>
                     <StyledArrow />
@@ -55,6 +56,7 @@ const CurrencyUpdate = () => {
                     placeholder="Date to"
                     value={dateTo}
                     onChange={(date) => setDateTo(date)}
+                    minDate={dateFrom || new Date('1999-01-04')}
                 />
             </StyledForm>
         </StyledCurrencyTimeline>
