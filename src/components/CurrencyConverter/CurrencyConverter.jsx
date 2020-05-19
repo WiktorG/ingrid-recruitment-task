@@ -95,7 +95,9 @@ const CurrencyConverter = () => {
     const currentRate = rates[convertedSymbol] || !isPending ? `${rates[convertedSymbol]} ${base}` : 'Loading..';
 
     return (
-        <StyledCurrencyConverter>
+        <StyledCurrencyConverter
+            customTestId="CurrencyConverter"
+        >
             <StyledTitle>Currency Converter</StyledTitle>
             <StyledForm>
                 <StyledInputWrapper>

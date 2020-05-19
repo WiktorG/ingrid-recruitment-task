@@ -5,9 +5,9 @@ import {
     StyledContainer,
 } from './Container.styled';
 
-const Container = ({ children, className }) => (
+const Container = ({ children, className, customTestId }) => (
     <StyledContainer
-        data-testid="Container"
+        data-testid={customTestId}
         className={className}
     >
         {children}
@@ -21,11 +21,13 @@ Container.propTypes = {
         PropTypes.object,
     ]),
     className: PropTypes.string,
+    customTestId: PropTypes.string,
 };
 
 Container.defaultProps = {
     children: null,
     className: '',
+    customTestId: 'Container',
 };
 
 export default Container;
