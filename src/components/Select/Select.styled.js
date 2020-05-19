@@ -82,4 +82,8 @@ export const StyledSelect = styled(ReactSelect)`
         border: none;
         margin-top: 0;
     }
+
+    .react-select__option {
+        cursor: pointer;
+    }
 `;
