@@ -28,8 +28,8 @@ const CurrencyConverter = () => {
         dispatch(currencyRatesRequest('PLN'));
     }, [dispatch]);
 
-    console.log(currentCurrency, currenciesSymbols);
-
+    const initialSelectOptions = currenciesSymbols.map((symbol) => ({ label: symbol, value: 'symbol' }));
+    const convertedSelectOptions = [...initialSelectOptions].filter((symbol) => symbol !== currentCurrency.base);
 
     return (
         <StyledCurrencyConverter>
@@ -37,10 +37,7 @@ const CurrencyConverter = () => {
             <StyledForm>
                 <StyledInputWrapper>
                     <Select
-                        options={[{
-                            label: 'PLN',
-                            value: 1,
-                        }]}
+                        options={initialSelectOptions}
                     />
                     <StyledInput
                         value={initialAmount}
@@ -54,10 +51,7 @@ const CurrencyConverter = () => {
                         onChange={(e) => setInitialAmount(e.target.value)}
                     />
                     <Select
-                        options={[{
-                            label: 'EUR',
-                            value: 4,
-                        }]}
+                        options={convertedSelectOptions}
                     />
                 </StyledInputWrapper>
             </StyledForm>
