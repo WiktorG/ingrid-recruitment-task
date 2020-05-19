@@ -8,6 +8,7 @@ import Input from '~/components/Input/Input';
 
 export const StyledCurrencyConverter = styled(Container)`
     align-items: center;
+    transition: all 0.3s ease;
     margin-top: 10px;
     @media ${screens.laptop} {
         margin-top: 70px;
