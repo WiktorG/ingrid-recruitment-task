@@ -12,6 +12,7 @@ export const StyledCurrencyTimeline = styled(Container)`
     margin-top: 10px;
     @media ${screens.laptop} {
         margin-top: 33px;
+        padding-bottom: 30px;
     }
 `;
 

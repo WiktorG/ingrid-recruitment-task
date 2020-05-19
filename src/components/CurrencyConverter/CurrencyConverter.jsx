@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     currencyRatesRequest,
     currencyRatesError,
+    setConvertToCurrency,
 } from '~/redux/actions/currenciesActions';
 import {
     currentCurrency as currentCurrencySelector,
@@ -31,14 +32,14 @@ const CurrencyConverter = () => {
     const dispatch = useDispatch();
     const {
         rates,
-        base,
+        base, // currency to convert from
+        convertTo, // currency to convert to
         isPending,
         error,
     } = useSelector(currentCurrencySelector);
     const currenciesSymbols = useSelector(currenciesSymbolsSelector);
     const [initialAmount, setInitialAmount] = useState(0);
     const [convertedAmount, setConvertedAmount] = useState(0);
-    const [convertedSymbol, setConvertedSymbol] = useState('EUR'); // initialSymbol is set in store :)
 
     useEffect(() => {
         dispatch(currencyRatesRequest('PLN'));
@@ -65,12 +66,12 @@ const CurrencyConverter = () => {
 
     const handleInitialAmountChange = (amount) => {
         setInitialAmount(amount === '' ? '' : parseMoney(amount));
-        setConvertedAmount(parseMoney(amount * rates[convertedSymbol]));
+        setConvertedAmount(parseMoney(amount * rates[convertTo]));
     };
 
     const handleConvertedAmountChange = (amount) => {
         setConvertedAmount(amount === '' ? '' : parseMoney(amount));
-        setInitialAmount(parseMoney(amount * (1 / rates[convertedSymbol])));
+        setInitialAmount(parseMoney(amount * (1 / rates[convertTo])));
     };
 
     const handleInitialSymbolChange = ({ value }) => {
@@ -78,8 +79,8 @@ const CurrencyConverter = () => {
         setConvertedAmount(parseMoney(initialAmount * rates[value]));
     };
 
-    const handleConvertedSymbolChange = ({ value }) => {
-        setConvertedSymbol(value);
+    const handleConvertToSymbolChange = ({ value }) => {
+        dispatch(setConvertToCurrency(value));
         setInitialAmount(parseMoney(initialAmount * (1 / rates[value])));
     };
 
@@ -92,7 +93,7 @@ const CurrencyConverter = () => {
     const convertedSelectOptions = [...initialSelectOptions]
         .filter(({ value }) => value !== base);
 
-    const currentRate = rates[convertedSymbol] || !isPending ? `${rates[convertedSymbol]} ${base}` : 'Loading..';
+    const currentRate = rates[convertTo] || !isPending ? `${rates[convertTo]} ${base}` : 'Loading..';
 
     return (
         <StyledCurrencyConverter
@@ -119,7 +120,7 @@ const CurrencyConverter = () => {
                 <StyledInputWrapper>
                     <Select
                         options={convertedSelectOptions}
-                        onChange={handleConvertedSymbolChange}
+                        onChange={handleConvertToSymbolChange}
                     />
                     <StyledInput
                         type="number"
