@@ -14,6 +14,18 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
+
+    input {
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        &[type=number] {
+            -moz-appearance: textfield;
+
+        }
+    }
 `;
 
 export default GlobalStyle;

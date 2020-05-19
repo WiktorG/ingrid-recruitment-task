@@ -31,19 +31,29 @@ const CurrencyConverter = () => {
         dispatch(currencyRatesRequest('PLN'));
     }, [dispatch]);
 
+    const parseMoney = (amount) => {
+        if (parseFloat(amount) < 0 || amount === '') {
+            return 0;
+        }
+        if (amount.toString().split('.')[1] && amount.toString().split('.')[1].length > 2) {
+            return parseFloat(amount).toFixed(2);
+        }
+        return parseFloat(amount);
+    };
+
     const handleInitialSymbolChange = ({ value }) => {
         dispatch(currencyRatesRequest(value));
         setConvertedAmount(initialAmount * rates[value]);
     };
 
     const handleInitialAmountChange = (e) => {
-        setInitialAmount(e.target.value);
-        setConvertedAmount(parseFloat(e.target.value) * rates[convertedSymbol]);
+        setInitialAmount(e.target.value === '' ? '' : parseMoney(e.target.value));
+        setConvertedAmount((parseMoney(e.target.value) * rates[convertedSymbol]).toFixed(2));
     };
 
     const handleConvertedAmountChange = (e) => {
-        setConvertedAmount(e.target.value);
-        setInitialAmount(parseFloat(e.target.value) * (1 / rates[convertedSymbol]));
+        setConvertedAmount(e.target.value === '' ? '' : parseMoney(e.target.value));
+        setInitialAmount((parseMoney(e.target.value) * (1 / rates[convertedSymbol])).toFixed(2));
     };
 
     const handleConvertedSymbolChange = ({ value }) => {
@@ -69,6 +79,7 @@ const CurrencyConverter = () => {
                         onChange={handleInitialSymbolChange}
                     />
                     <StyledInput
+                        type="number"
                         value={initialAmount}
                         onChange={handleInitialAmountChange}
                     />
@@ -76,6 +87,7 @@ const CurrencyConverter = () => {
                 <StyledArrowIcon />
                 <StyledInputWrapper>
                     <StyledInput
+                        type="number"
                         value={convertedAmount}
                         onChange={handleConvertedAmountChange}
                     />
