@@ -105,6 +105,8 @@ export const StyledInfoWrapper = styled.span`
     margin-top: 5px;
     @media ${screens.mobileXL} {
         font-size: 0.95em;
+        flex-direction: row;
+        justify-content: space-between;
     }
 `;
 

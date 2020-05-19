@@ -40,15 +40,16 @@ const CurrencyConverter = () => {
     const currenciesSymbols = useSelector(currenciesSymbolsSelector);
     const [initialAmount, setInitialAmount] = useState(0);
     const [convertedAmount, setConvertedAmount] = useState(0);
+    const [formError, setFormError] = useState(false);
 
     useEffect(() => {
         dispatch(currencyRatesRequest('PLN'));
     }, [dispatch]);
 
     const parseMoney = (amount) => {
-        dispatch(currencyRatesError(false));
+        setFormError(false);
         if (!parseFloat(amount) && amount !== 0) {
-            dispatch(currencyRatesError('Incorrect data in fields.'));
+            setFormError('Incorrect data in fields.');
             return 0;
         }
         if (parseFloat(amount) < 0 || amount === '') {
@@ -131,9 +132,9 @@ const CurrencyConverter = () => {
                 </StyledInputWrapper>
             </StyledForm>
             <StyledInfoWrapper>
-                {error && (
+                {(error || formError) && (
                     <StyledError>
-                        {error}
+                        {error || formError}
                     </StyledError>
                 )}
                 <StyledRate>
