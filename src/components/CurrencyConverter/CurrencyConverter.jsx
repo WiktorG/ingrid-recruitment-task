@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -16,16 +17,16 @@ import {
     StyledInputWrapper,
     StyledInput,
     StyledArrowIcon,
+    StyledRate,
 } from './CurrencyConverter.styled';
 
 const CurrencyConverter = () => {
     const dispatch = useDispatch();
-    const { rates, ...currentCurrency } = useSelector(currentCurrencySelector);
+    const { rates, base, isPending } = useSelector(currentCurrencySelector);
     const currenciesSymbols = useSelector(currenciesSymbolsSelector);
-    // initialSymbol is set in store :)
-    const [initialAmount, setInitialAmount] = useState((0).toFixed(2)); // initial value 0.00
-    const [convertedSymbol, setConvertedSymbol] = useState('EUR');
-    const [convertedAmount, setConvertedAmount] = useState((0).toFixed(2));
+    const [initialAmount, setInitialAmount] = useState(0); // initial value 0.00
+    const [convertedAmount, setConvertedAmount] = useState(0);
+    const [convertedSymbol, setConvertedSymbol] = useState('EUR'); // initialSymbol is set in store :)
 
     useEffect(() => {
         dispatch(currencyRatesRequest('PLN'));
@@ -33,9 +34,9 @@ const CurrencyConverter = () => {
 
     const parseMoney = (amount) => {
         if (parseFloat(amount) < 0 || amount === '') {
-            return (0).toFixed(2);
+            return (0);
         }
-        // if string has more numbers after dot or comma than 2 - I cut them out
+        // if string has more numbers after dot or comma than 2 - I cut them off
         const [, afterComma] = amount.toString().split('.');
         if (afterComma && afterComma.length > 2) {
             return parseFloat(amount).toFixed(2);
@@ -43,21 +44,21 @@ const CurrencyConverter = () => {
         return parseFloat(amount);
     };
 
-    const handleBlur = (value, setter) => (value === '' ? setter((0).toFixed(2)) : null);
+    const handleBlur = (value, setter) => (value === '' ? setter(0) : null);
+
+    const handleInitialAmountChange = (amount) => {
+        setInitialAmount(amount === '' ? '' : parseMoney(amount));
+        setConvertedAmount(parseMoney(amount) * rates[convertedSymbol]);
+    };
+
+    const handleConvertedAmountChange = (amount) => {
+        setConvertedAmount(amount === '' ? '' : parseMoney(amount));
+        setInitialAmount(parseMoney(amount) * (1 / rates[convertedSymbol]));
+    };
 
     const handleInitialSymbolChange = ({ value }) => {
         dispatch(currencyRatesRequest(value));
         setConvertedAmount(initialAmount * rates[value]);
-    };
-
-    const handleInitialAmountChange = (e) => {
-        setInitialAmount(e.target.value === '' ? '' : parseMoney(e.target.value));
-        setConvertedAmount((parseMoney(e.target.value) * rates[convertedSymbol]).toFixed(2));
-    };
-
-    const handleConvertedAmountChange = (e) => {
-        setConvertedAmount(e.target.value === '' ? '' : parseMoney(e.target.value));
-        setInitialAmount((parseMoney(e.target.value) * (1 / rates[convertedSymbol])).toFixed(2));
     };
 
     const handleConvertedSymbolChange = ({ value }) => {
@@ -70,8 +71,11 @@ const CurrencyConverter = () => {
             label: symbol,
             value: symbol,
         }));
+
     const convertedSelectOptions = [...initialSelectOptions]
-        .filter(({ value }) => value !== currentCurrency.base);
+        .filter(({ value }) => value !== base);
+
+    const currentRate = rates[convertedSymbol] || !isPending ? `${rates[convertedSymbol]} ${base}` : 'Loading..';
 
     return (
         <StyledCurrencyConverter>
@@ -85,7 +89,7 @@ const CurrencyConverter = () => {
                     <StyledInput
                         type="number"
                         value={initialAmount}
-                        onChange={handleInitialAmountChange}
+                        onChange={(e) => handleInitialAmountChange(e.target.value)}
                         onBlur={() => handleBlur(initialAmount, setInitialAmount)}
                     />
                 </StyledInputWrapper>
@@ -94,7 +98,7 @@ const CurrencyConverter = () => {
                     <StyledInput
                         type="number"
                         value={convertedAmount}
-                        onChange={handleConvertedAmountChange}
+                        onChange={(e) => handleConvertedAmountChange(e.target.value)}
                         onBlur={(e) => handleBlur(e, setConvertedAmount)}
                     />
                     <Select
@@ -103,6 +107,9 @@ const CurrencyConverter = () => {
                     />
                 </StyledInputWrapper>
             </StyledForm>
+            <StyledRate>
+                Current rate: {currentRate}
+            </StyledRate>
         </StyledCurrencyConverter>
     );
 };

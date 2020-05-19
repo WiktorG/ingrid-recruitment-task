@@ -7,6 +7,7 @@ import Container from '~/components/Container/Container';
 import Input from '~/components/Input/Input';
 
 export const StyledCurrencyConverter = styled(Container)`
+    align-items: center;
     margin-top: 100px;
     @media ${screens.sm} {
         margin-top: 10px
@@ -16,6 +17,7 @@ export const StyledCurrencyConverter = styled(Container)`
 export const StyledTitle = styled.h2`
     margin-top: 0;
     margin-bottom: 17px;
+    margin-right: auto;
     font-size: 1.56em;
     color: ${colors.font};
     @media ${screens.sm} {
@@ -31,6 +33,7 @@ export const StyledForm = styled.form`
     justify-content: center;
     align-content: center;
     align-items: center;
+    max-width: 585px;
 `;
 
 export const StyledInputWrapper = styled.span`
@@ -39,6 +42,7 @@ export const StyledInputWrapper = styled.span`
 
 export const StyledInput = styled(Input)`
     max-width: 187px;
+    width: 100%;
 `;
 
 export const StyledArrowIcon = styled(IoMdArrowRoundForward)`
@@ -46,4 +50,14 @@ export const StyledArrowIcon = styled(IoMdArrowRoundForward)`
     color: ${colors.font};
     margin-left: 4px;
     margin-right: 4px;
+`;
+
+export const StyledRate = styled.span`
+    display: block;
+    max-width: 585px;
+    min-height: 19px;
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 2px;
 `;

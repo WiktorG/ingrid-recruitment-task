@@ -39,7 +39,7 @@ const currenciesReducer = (state = initialState, action) => {
         return {
             ...state,
             current: {
-                ...state.current,
+                ...action.current,
                 isPending: false,
                 error: 'Something went wrong',
             },
