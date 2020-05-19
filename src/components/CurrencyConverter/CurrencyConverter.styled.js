@@ -8,9 +8,9 @@ import Input from '~/components/Input/Input';
 
 export const StyledCurrencyConverter = styled(Container)`
     align-items: center;
-    margin-top: 100px;
-    @media ${screens.sm} {
-        margin-top: 10px
+    margin-top: 10px;
+    @media ${screens.laptop} {
+        margin-top: 70px;
     }
 `;
 
@@ -18,10 +18,10 @@ export const StyledTitle = styled.h2`
     margin-top: 0;
     margin-bottom: 17px;
     margin-right: auto;
-    font-size: 1.56em;
+    font-size: 1.4em;
     color: ${colors.font};
-    @media ${screens.sm} {
-        font-size: 1.4em;
+    @media ${screens.tablet} {
+        font-size: 1.56em;
     }
 `;
 
