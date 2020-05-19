@@ -28,8 +28,8 @@ const CurrencyConverter = () => {
         dispatch(currencyRatesRequest('PLN'));
     }, [dispatch]);
 
-    const initialSelectOptions = currenciesSymbols.map((symbol) => ({ label: symbol, value: 'symbol' }));
-    const convertedSelectOptions = [...initialSelectOptions].filter((symbol) => symbol !== currentCurrency.base);
+    const initialSelectOptions = currenciesSymbols.map((symbol) => ({ label: symbol, value: symbol }));
+    const convertedSelectOptions = [...initialSelectOptions].filter(({ value }) => value !== currentCurrency.base);
 
     return (
         <StyledCurrencyConverter>
