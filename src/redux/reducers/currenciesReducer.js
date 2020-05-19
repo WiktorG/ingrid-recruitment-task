@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     currentCurrency: {
-        isPending: true,
+        isPending: false,
         error: false,
         base: 'PLN',
         date: '',
@@ -46,4 +46,4 @@ const currenciesReducer = (state = initialState, action) => {
     }
 };
 
-export default currenciesReducer
+export default currenciesReducer;
