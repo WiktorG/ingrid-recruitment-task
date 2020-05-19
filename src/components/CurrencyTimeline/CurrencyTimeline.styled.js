@@ -5,7 +5,6 @@ import colors from '~/utilities/colors';
 
 import Container from '~/components/Container/Container';
 import DatePicker from '~/components/DatePicker/DatePicker';
-import Select from '~/components/Select/Select';
 
 export const StyledCurrencyTimeline = styled(Container)`
     align-items: center;
