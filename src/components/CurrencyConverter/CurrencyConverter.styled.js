@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IoMdArrowRoundForward } from 'react-icons/io';
+import { IoMdArrowRoundForward, IoMdArrowRoundBack } from 'react-icons/io';
 import screens from '~/utilities/screens';
 import colors from '~/utilities/colors';
 
@@ -30,47 +30,100 @@ export const StyledTitle = styled.h2`
 // in repo "polskietechno.pl" you can see the way I implemeted it :)
 export const StyledForm = styled.form`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items: center;
     max-width: 585px;
+    width: 100%;
+    @media ${screens.mobileXL} {
+        flex-direction: row;
+    }
 `;
 
 export const StyledInputWrapper = styled.span`
     display: flex;
+    width: 100%;
+    @media ${screens.mobileXL} {
+        &:nth-last-of-type(1) {
+            flex-direction: row-reverse;
+        }
+    }
 `;
 
 export const StyledInput = styled(Input)`
-    max-width: 187px;
     width: 100%;
+    @media ${screens.mobileXL} {
+        max-width: 187px;
+    }
 `;
 
-export const StyledArrowIcon = styled(IoMdArrowRoundForward)`
-    font-size: 1.2em;
-    color: ${colors.font};
+export const StyledArrowWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
     margin-left: 4px;
     margin-right: 4px;
+    font-size: 1.2em;
+    color: ${colors.font};
+    @media ${screens.mobileXL} {
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+    }
+`;
+
+export const StyledArrowRight = styled(IoMdArrowRoundForward)`
+    transition: all 0.3s ease;
+    transform: rotate(90deg);
+    @media ${screens.mobileXL} {
+        transform: none;
+    }
+`;
+
+export const StyledArrowLeft = styled(IoMdArrowRoundBack)`
+    transition: all 0.3s ease;
+    transform: rotate(90deg);
+    @media ${screens.mobileXL} {
+        transform: none;
+        margin: 0;
+    }
 `;
 
 export const StyledInfoWrapper = styled.span`
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
     max-width: 585px;
     min-height: 19px;
-    margin-top: 2px;
+    font-size: 0.86em;
+    margin-top: 5px;
+    @media ${screens.mobileXL} {
+        font-size: 0.95em;
+    }
 `;
 
 export const StyledError = styled.span`
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     color: ${colors.red};
+    margin-top: 5px;
+    @media ${screens.mobileXL} {
+        margin-top: 0;
+        text-align: left;
+    }
 `;
 
 export const StyledRate = styled.span`
-    margin-left: auto;
-    text-align: right;
+    text-align: center;
     font-weight: bold;
+    margin-top: 5px;
+    @media ${screens.mobileXL} {
+        margin-top: 0;
+        margin-left: auto;
+        text-align: right;
+    }
 `;

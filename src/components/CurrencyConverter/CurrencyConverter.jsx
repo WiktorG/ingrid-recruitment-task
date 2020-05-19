@@ -19,7 +19,9 @@ import {
     StyledForm,
     StyledInputWrapper,
     StyledInput,
-    StyledArrowIcon,
+    StyledArrowWrapper,
+    StyledArrowRight,
+    StyledArrowLeft,
     StyledInfoWrapper,
     StyledError,
     StyledRate,
@@ -108,17 +110,20 @@ const CurrencyConverter = () => {
                         onBlur={() => handleBlur(initialAmount, handleInitialAmountChange)}
                     />
                 </StyledInputWrapper>
-                <StyledArrowIcon />
+                <StyledArrowWrapper>
+                    <StyledArrowRight />
+                    <StyledArrowLeft />
+                </StyledArrowWrapper>
                 <StyledInputWrapper>
+                    <Select
+                        options={convertedSelectOptions}
+                        onChange={handleConvertedSymbolChange}
+                    />
                     <StyledInput
                         type="number"
                         value={convertedAmount}
                         onChange={(e) => handleConvertedAmountChange(e.target.value)}
                         onBlur={() => handleBlur(convertedAmount, handleInitialAmountChange)}
-                    />
-                    <Select
-                        options={convertedSelectOptions}
-                        onChange={handleConvertedSymbolChange}
                     />
                 </StyledInputWrapper>
             </StyledForm>
