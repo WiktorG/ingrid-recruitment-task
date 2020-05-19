@@ -23,9 +23,9 @@ const CurrencyConverter = () => {
     const { rates, ...currentCurrency } = useSelector(currentCurrencySelector);
     const currenciesSymbols = useSelector(currenciesSymbolsSelector);
     // initialSymbol is set in store :)
-    const [initialAmount, setInitialAmount] = useState(0);
+    const [initialAmount, setInitialAmount] = useState((0).toFixed(2)); // initial value 0.00
     const [convertedSymbol, setConvertedSymbol] = useState('EUR');
-    const [convertedAmount, setConvertedAmount] = useState(0);
+    const [convertedAmount, setConvertedAmount] = useState((0).toFixed(2));
 
     useEffect(() => {
         dispatch(currencyRatesRequest('PLN'));
@@ -33,7 +33,7 @@ const CurrencyConverter = () => {
 
     const parseMoney = (amount) => {
         if (parseFloat(amount) < 0 || amount === '') {
-            return 0;
+            return (0).toFixed(2);
         }
         // if string has more numbers after dot or comma than 2 - I cut them out
         const [, afterComma] = amount.toString().split('.');
@@ -42,6 +42,8 @@ const CurrencyConverter = () => {
         }
         return parseFloat(amount);
     };
+
+    const handleBlur = (value, setter) => (value === '' ? setter((0).toFixed(2)) : null);
 
     const handleInitialSymbolChange = ({ value }) => {
         dispatch(currencyRatesRequest(value));
@@ -84,6 +86,7 @@ const CurrencyConverter = () => {
                         type="number"
                         value={initialAmount}
                         onChange={handleInitialAmountChange}
+                        onBlur={() => handleBlur(initialAmount, setInitialAmount)}
                     />
                 </StyledInputWrapper>
                 <StyledArrowIcon />
@@ -92,6 +95,7 @@ const CurrencyConverter = () => {
                         type="number"
                         value={convertedAmount}
                         onChange={handleConvertedAmountChange}
+                        onBlur={(e) => handleBlur(e, setConvertedAmount)}
                     />
                     <Select
                         options={convertedSelectOptions}
