@@ -8,7 +8,7 @@ import {
 
 const Select = ({
     options,
-    handleChange,
+    onChange,
     placeholder,
     defaultValue,
 }) => {
@@ -16,7 +16,7 @@ const Select = ({
 
     const preHandleChange = (selectedOption) => {
         setSelected(selectedOption);
-        handleChange(selectedOption);
+        onChange(selectedOption);
     };
 
     return (
@@ -41,7 +41,7 @@ const Select = ({
 
 Select.propTypes = {
     options: PropTypes.arrayOf(PropTypes.object),
-    handleChange: PropTypes.func,
+    onChange: PropTypes.func,
     placeholder: PropTypes.string,
     defaultValue: PropTypes.shape({
         value: PropTypes.number,
@@ -51,7 +51,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
     options: [],
-    handleChange: () => {},
+    onChange: () => {},
     placeholder: 'PLN',
     defaultValue: null,
 };
