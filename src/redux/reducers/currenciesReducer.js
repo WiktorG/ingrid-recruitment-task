@@ -17,11 +17,18 @@ const initialState = {
     },
     symbols: ['PLN', 'EUR'],
     timeline: {
+        isPending: false,
+        error: false,
         dateFrom: '',
         dateTo: '',
         rates: {},
     },
 };
+
+/*
+    Currencies in Timeline are taken from Converter, eg.
+    I select PLN and EUR then I show graph for course of PLN against EUR
+*/
 
 const currenciesReducer = (state = initialState, action) => {
     switch (action.type) {
