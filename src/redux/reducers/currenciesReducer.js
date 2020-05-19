@@ -47,7 +47,7 @@ const currenciesReducer = (state = initialState, action) => {
     case SET_CURRENCIES_SYMBOLS:
         return {
             ...state,
-            symbols: [...state.symbols],
+            symbols: [...action.symbols],
         };
     default:
         return state;
