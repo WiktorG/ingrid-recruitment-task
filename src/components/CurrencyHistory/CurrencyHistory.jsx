@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { isValidDate } from '~/helpers/dateHelpers';
 
 import { currencyHistoryRequest } from '~/redux/actions/currenciesActions';
 import {
@@ -55,6 +56,8 @@ const CurrencyHistory = () => {
         currencyHistory.dateTo,
     ]);
 
+    const minDate = isValidDate(dateFrom) ? new Date(dateFrom) : new Date('1999-01-04');
+    const maxDate = isValidDate(dateTo) ? new Date(dateTo) : new Date();
 
     return (
         <StyledCurrencyHistory
@@ -70,7 +73,7 @@ const CurrencyHistory = () => {
                     value={new Date(dateFrom)}
                     onChange={(date) => setDateFrom(date)}
                     minDate={new Date('1999-01-04')}
-                    maxDate={new Date(dateTo) || new Date()}
+                    maxDate={maxDate}
                 />
                 <StyledIconHolder>
                     <StyledArrow />
@@ -80,7 +83,8 @@ const CurrencyHistory = () => {
                     placeholder="Date to"
                     value={new Date(dateTo)}
                     onChange={(date) => setDateTo(date)}
-                    minDate={new Date(dateFrom) || new Date('1999-01-04')}
+                    minDate={minDate}
+                    maxDate={new Date()}
                 />
             </StyledForm>
             {error && (

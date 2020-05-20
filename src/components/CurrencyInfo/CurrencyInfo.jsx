@@ -26,6 +26,7 @@ const CurrencyInfo = ({ isVisible }) => {
     return isVisible && (
         <StyledCurrencyInfo
             data-testid="CurrencyInfo"
+            isVisible={isVisible}
         >
             <CurrencyChart />
             <StyledInfoWrapper>

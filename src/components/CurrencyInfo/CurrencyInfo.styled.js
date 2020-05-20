@@ -5,6 +5,7 @@ export const StyledCurrencyInfo = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    overflow-y: scroll;
 `;
 
 export const StyledInfoWrapper = styled.span`
