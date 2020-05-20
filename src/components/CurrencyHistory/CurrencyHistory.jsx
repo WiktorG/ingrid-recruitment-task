@@ -42,7 +42,9 @@ const CurrencyHistory = () => {
     // TODO: Prevent from selecting the same day (horizontal graph)
 
     return (
-        <StyledCurrencyHistory>
+        <StyledCurrencyHistory
+            customTestId="CurrencyHistory"
+        >
             <StyledTitle>Currency History</StyledTitle>
             <StyledForm>
                 <StyledDatePicker
