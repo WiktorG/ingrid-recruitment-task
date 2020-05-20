@@ -35,3 +35,7 @@ export const currencyHistoryRequest = ({
     base,
     against,
 });
+
+export const currencyHistorySuccess = ({ rates }) => ({ type: CURRENCY_HISTORY_SUCCESS, rates });
+
+export const currencyHistoryError = ({ rates }) => ({ type: CURRENCY_HISTORY_ERROR, rates });

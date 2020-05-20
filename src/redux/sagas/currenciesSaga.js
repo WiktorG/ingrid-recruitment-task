@@ -9,6 +9,8 @@ import {
     currencyRatesSuccess,
     currencyRatesError,
     setCurrenciesSymbols,
+    currencyHistorySuccess,
+    currencyHistoryError,
 } from '~/redux/actions/currenciesActions';
 
 export function* currencyRatesSaga({ currencySymbol }) {
@@ -36,11 +38,28 @@ export function* currencyHistorySaga({
     base,
     against,
 }) {
-    const { data } = yield call(api.currencies.history, {
-        dateFrom,
-        dateTo,
-        against,
-        base,
-    });
-    console.log(data);
+    try {
+        const { data } = yield call(api.currencies.history, {
+            dateFrom,
+            dateTo,
+            against,
+            base,
+        });
+        const rates = yield Object.keys(data.rates).map((key) => ({
+            date: key,
+            rate: data.rates[key][base],
+        }));
+        const sortedRates = rates.slice().sort((a, b) => {
+            if (a.date < b.date) {
+                return -1;
+            }
+            if (a.date > b.date) {
+                return 1;
+            }
+            return 0;
+        });
+        yield put(currencyHistorySuccess({ rates: sortedRates }));
+    } catch (err) {
+        yield put(currencyHistoryError('Something went wrong - try again later'));
+    }
 }

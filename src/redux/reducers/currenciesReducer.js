@@ -36,8 +36,6 @@ const initialState = {
     See CURRENCY_RATES_SUCCESS and SET_CONVERT_TO_CURRENCY
 */
 
-// TODO: RENAME TIMELINE TO HISTORY EVERYWHERE
-
 const currenciesReducer = (state = initialState, action) => {
     switch (action.type) {
     case CURRENCY_RATES_REQUEST:
@@ -56,8 +54,8 @@ const currenciesReducer = (state = initialState, action) => {
                 ...action.currencyRatesData,
                 isPending: false,
             },
-            timeline: {
-                ...state.timeline,
+            history: {
+                ...state.history,
                 base: action.currencyRatesData.base,
             },
         };
@@ -77,8 +75,8 @@ const currenciesReducer = (state = initialState, action) => {
                 ...state.current,
                 convertTo: action.symbol,
             },
-            timeline: {
-                ...state.timeline,
+            history: {
+                ...state.history,
                 against: action.symbol,
             },
         };
@@ -90,6 +88,12 @@ const currenciesReducer = (state = initialState, action) => {
     case CURRENCY_HISTORY_REQUEST:
         return {
             ...state,
+            history: {
+                ...state.history,
+                isPending: true,
+                dateFrom: action.dateFrom,
+                dateTo: action.dateTo,
+            },
         };
     case CURRENCY_HISTORY_SUCCESS:
         return {
@@ -98,7 +102,7 @@ const currenciesReducer = (state = initialState, action) => {
     case CURRENCY_HISTORY_ERROR:
         return {
             ...state,
-        }
+        };
     default:
         return state;
     }

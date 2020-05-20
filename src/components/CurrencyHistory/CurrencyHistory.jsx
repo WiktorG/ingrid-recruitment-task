@@ -16,7 +16,7 @@ import {
     StyledArrow,
 } from './CurrencyHistory.styled';
 
-const CurrencyUpdate = () => {
+const CurrencyHistory = () => {
     const dispatch = useDispatch();
     const { base, against, ...currencyHistory } = useSelector(currencyHistorySelector);
     const [dateFrom, setDateFrom] = useState(undefined);
@@ -65,4 +65,4 @@ const CurrencyUpdate = () => {
 };
 
 
-export default CurrencyUpdate;
+export default CurrencyHistory;
