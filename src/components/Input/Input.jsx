@@ -12,6 +12,7 @@ const Input = ({
     onBlur,
     onChange,
     type,
+    name,
     customTestId,
 }) => (
     <StyledInput
@@ -21,6 +22,7 @@ const Input = ({
         onChange={onChange}
         placeholder={placeholder}
         className={className}
+        name={name}
         type={type}
     />
 );
@@ -32,6 +34,7 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     type: PropTypes.oneOf(['text', 'number', 'password']),
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    name: PropTypes.string.isRequired,
     customTestId: PropTypes.string,
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, waitForElement, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import { renderWithThemeAndReduxProvider } from '~/helpers/testHelpers';
 import api from '~/etc/api';
 

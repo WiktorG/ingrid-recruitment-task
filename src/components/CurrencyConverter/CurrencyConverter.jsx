@@ -110,6 +110,7 @@ const CurrencyConverter = () => {
                     />
                     <StyledInput
                         type="number"
+                        name="initial-amount"
                         value={initialAmount}
                         onChange={(e) => handleInitialAmountChange(e.target.value)}
                         onBlur={() => handleBlur(initialAmount, handleInitialAmountChange)}
@@ -128,6 +129,7 @@ const CurrencyConverter = () => {
                     />
                     <StyledInput
                         type="number"
+                        name="converted-amount"
                         value={convertedAmount}
                         onChange={(e) => handleConvertedAmountChange(e.target.value)}
                         onBlur={() => handleBlur(convertedAmount, handleInitialAmountChange)}
