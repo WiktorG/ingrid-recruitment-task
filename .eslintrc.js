@@ -32,7 +32,6 @@ module.exports = {
     "indent": ["error", 4, {"ignoredNodes": ["JSXElement"]}],
     "react/jsx-indent": ["error", 4],
     "react/jsx-indent-props": ["error", 4],
-    "react-hooks/exhaustive-deps": "off",
     "no-console": "off",
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
