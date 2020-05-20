@@ -57,9 +57,7 @@ const CurrencyHistory = () => {
     const maxDate = isValidDate(dateTo) ? new Date(dateTo) : new Date();
 
     return (
-        <StyledCurrencyHistory
-            customTestId="CurrencyHistory"
-        >
+        <StyledCurrencyHistory>
             <StyledTitle>
                 {`${base} to ${against} history`}
             </StyledTitle>

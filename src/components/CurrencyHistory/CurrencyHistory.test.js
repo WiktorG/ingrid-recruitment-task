@@ -30,7 +30,7 @@ beforeEach(() => {
 
 test('component should render', async () => {
     renderWithThemeAndReduxProvider(<CurrencyHistory />);
-    const historyNode = screen.getByTestId('CurrencyHistory');
+    const historyNode = screen.getByTestId('Container');
     expect(historyNode).toBeInTheDocument();
 });
 

@@ -15,7 +15,7 @@ beforeEach(() => {
 
 test('component should render', async () => {
     renderWithThemeAndReduxProvider(<CurrencyConverter />);
-    const converterNode = screen.getByTestId('CurrencyConverter');
+    const converterNode = screen.getByTestId('Container');
     expect(converterNode).toBeInTheDocument();
 });
 
