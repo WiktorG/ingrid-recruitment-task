@@ -24,7 +24,7 @@ const CurrencyHistory = () => {
         base,
         against,
         isPending,
-        isGraphVisible,
+        isChartVisible,
         ...currencyHistory
     } = useSelector(currencyHistorySelector);
     const [dateFrom, setDateFrom] = useState(undefined);
