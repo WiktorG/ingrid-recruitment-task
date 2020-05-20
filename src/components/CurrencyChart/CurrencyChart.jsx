@@ -17,6 +17,7 @@ import {
 import {
     StyledCurrencyChart,
     lineChartMargin,
+    yAxisPadding,
 } from './CurrencyChart.styled';
 
 const CurrencyChart = () => {
@@ -38,10 +39,7 @@ const CurrencyChart = () => {
                         type="number"
                         domain={['auto', 'auto']}
                         dataKey="rate"
-                        padding={{
-                            top: 5,
-                            bottom: 5,
-                        }}
+                        padding={yAxisPadding}
                     />
                     <Tooltip />
                     <Line

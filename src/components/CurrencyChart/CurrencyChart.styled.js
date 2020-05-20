@@ -8,6 +8,11 @@ export const lineChartMargin = {
     bottom: 5,
 };
 
+export const yAxisPadding = {
+    top: 5,
+    bottom: 5,
+};
+
 export const StyledCurrencyChart = styled.div`
     display: flex;
     margin-top: 30px;

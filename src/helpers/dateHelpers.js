@@ -5,4 +5,4 @@ export const formatDate = (date) => {
     return `${year}-${month}-${day}`;
 };
 
-export const isValidDate = (date) => date instanceof Date && typeof date === 'number';
+export const isValidDate = (date) => date instanceof Date && !isNaN(date); //TODO: Refactor
