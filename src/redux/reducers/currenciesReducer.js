@@ -21,7 +21,7 @@ const initialState = {
     symbols: ['PLN', 'EUR'],
     history: {
         isPending: false,
-        isChartVisible: false,
+        isInfoVisible: false,
         error: false,
         dateFrom: '',
         dateTo: '',
@@ -33,7 +33,7 @@ const initialState = {
 
 /*
     Currencies in history are taken from Converter, eg.
-    I select PLN and EUR then I show Chart for course of PLN against EUR
+    I select PLN and EUR then I show info for course of PLN against EUR
     See CURRENCY_RATES_SUCCESS and SET_CONVERT_TO_CURRENCY
 */
 
@@ -102,7 +102,7 @@ const currenciesReducer = (state = initialState, action) => {
             history: {
                 ...state.history,
                 isPending: false,
-                isChartVisible: true,
+                isInfoVisible: true,
                 rates: [...action.rates],
             },
         };
@@ -112,7 +112,7 @@ const currenciesReducer = (state = initialState, action) => {
             history: {
                 ...state.history,
                 isPending: false,
-                isChartVisible: false,
+                isInfoVisible: false,
                 rates: [],
                 error: action.error,
             },
