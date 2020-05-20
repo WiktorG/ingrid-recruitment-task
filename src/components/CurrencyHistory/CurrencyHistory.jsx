@@ -47,6 +47,7 @@ const CurrencyHistory = () => {
                 against,
             }));
         }
+        // eslint-disable-next-line 
     }, [dateFrom, dateTo, base, against, dispatch]);
 
 

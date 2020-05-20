@@ -137,12 +137,12 @@ const CurrencyConverter = () => {
             </StyledForm>
             <StyledInfoWrapper>
                 {(error || formError) && (
-                    <StyledError>
+                    <StyledError data-testid="Error">
                         {error || formError}
                     </StyledError>
                 )}
                 {(!error && !formError) && (
-                <StyledRate>
+                <StyledRate data-testid="Rate">
                     Exact rate: {currentRate}
                 </StyledRate>
                 )}
