@@ -38,4 +38,4 @@ export const currencyHistoryRequest = ({
 
 export const currencyHistorySuccess = ({ rates }) => ({ type: CURRENCY_HISTORY_SUCCESS, rates });
 
-export const currencyHistoryError = ({ rates }) => ({ type: CURRENCY_HISTORY_ERROR, rates });
+export const currencyHistoryError = (error) => ({ type: CURRENCY_HISTORY_ERROR, error });

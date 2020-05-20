@@ -26,7 +26,7 @@ const initialState = {
         dateTo: '',
         base: 'PLN',
         against: 'EUR',
-        rates: {},
+        rates: [],
     },
 };
 
@@ -98,10 +98,21 @@ const currenciesReducer = (state = initialState, action) => {
     case CURRENCY_HISTORY_SUCCESS:
         return {
             ...state,
+            history: {
+                ...state.history,
+                isPending: false,
+                rates: [...action.rates],
+            },
         };
     case CURRENCY_HISTORY_ERROR:
         return {
             ...state,
+            history: {
+                ...state.history,
+                isPending: false,
+                rates: [],
+                error: action.error,
+            },
         };
     default:
         return state;
