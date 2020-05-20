@@ -28,8 +28,8 @@ export function* currencyRatesSaga({ currencySymbol }) {
         if (symbols.length !== storedSymbols.length) {
             yield put(setCurrenciesSymbols(symbols));
         }
-    } catch (err) {
-        yield put(currencyRatesError('Something went wrong - try again later'));
+    } catch ({ message }) {
+        yield put(currencyRatesError(message));
     }
 }
 
@@ -60,7 +60,7 @@ export function* currencyHistorySaga({
             return 0;
         });
         yield put(currencyHistorySuccess({ rates: sortedRates }));
-    } catch (err) {
-        yield put(currencyHistoryError('Something went wrong - try again later'));
+    } catch ({ message }) {
+        yield put(currencyHistoryError(message));
     }
 }

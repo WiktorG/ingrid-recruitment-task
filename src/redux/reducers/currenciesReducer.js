@@ -54,6 +54,7 @@ const currenciesReducer = (state = initialState, action) => {
                 ...state.current,
                 ...action.currencyRatesData,
                 isPending: false,
+                error: false,
             },
             history: {
                 ...state.history,
