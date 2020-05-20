@@ -20,8 +20,10 @@ const CurrencyInfo = ({ isVisible }) => {
         against,
     } = useSelector(currencyHistorySelector);
 
-    const differenceInTime = isVisible && rates[0]
-        ? (rates[0].rate - rates[rates.length - 1].rate).toFixed(4) : 0;
+    // Calculating difference between first and last date
+    const [firstDate, lastDate] = [...rates].splice(1, rates.length - 2);
+    const differenceInTime = firstDate && lastDate
+        ? (firstDate.rate - lastDate.rate).toFixed(4) : 0;
 
     return isVisible && (
         <StyledCurrencyInfo
