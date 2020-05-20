@@ -50,7 +50,7 @@ DatePicker.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
     minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
     maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
 };
