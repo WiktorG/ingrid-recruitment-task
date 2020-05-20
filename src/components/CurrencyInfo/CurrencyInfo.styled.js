@@ -1,12 +1,12 @@
 import styled, { keyframes } from 'styled-components';
 import screens from '~/utilities/screens';
 
-const slideDown = keyframes`
+const fadeIn = keyframes`
     from {
-        height: 0;
+        opacity: 0;
     }
     to {
-        height: 220px;
+        opacity: 1;
     }
 `;
 
@@ -14,8 +14,7 @@ export const StyledCurrencyInfo = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    overflow-y: scroll;
-    animation-name: ${({ isVisible }) => (isVisible ? slideDown : 'none')};
+    animation-name: ${({ isVisible }) => (isVisible ? fadeIn : 'none')};
     animation-duration: 300ms;
     animation-timing-function: ease-in-out;
 `;

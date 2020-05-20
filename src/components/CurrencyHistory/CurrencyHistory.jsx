@@ -57,12 +57,14 @@ const CurrencyHistory = () => {
     ]);
 
     useEffect(() => {
-        dispatch(currencyHistoryRequest({
-            dateFrom,
-            dateTo,
-            base,
-            against,
-        }));
+        if (dateFrom !== '' && dateFrom !== '') {
+            dispatch(currencyHistoryRequest({
+                dateFrom,
+                dateTo,
+                base,
+                against,
+            }));
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [base, against]);
 
