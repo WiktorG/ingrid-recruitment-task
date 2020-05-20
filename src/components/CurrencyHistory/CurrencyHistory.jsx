@@ -47,7 +47,15 @@ const CurrencyHistory = () => {
                 against,
             }));
         }
-    }, [dateFrom, dateTo, base, against, dispatch]);
+    }, [
+        dateFrom,
+        dateTo,
+        base,
+        against,
+        dispatch,
+        currencyHistory.dateFrom,
+        currencyHistory.dateTo,
+    ]);
 
 
     return (
