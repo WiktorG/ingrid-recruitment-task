@@ -27,7 +27,7 @@ const CurrencyInfo = ({ isVisible }) => {
         <StyledCurrencyInfo>
             <CurrencyChart />
             <StyledInfoWrapper>
-                {`Course of ${base} in following time has changed by ${differenceInTime} ${against}`}
+                {`Course of ${base} in following time  has changed by ${differenceInTime} ${against}`}
             </StyledInfoWrapper>
         </StyledCurrencyInfo>
     );
