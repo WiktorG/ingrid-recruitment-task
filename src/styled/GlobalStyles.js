@@ -29,7 +29,6 @@ const GlobalStyle = createGlobalStyle`
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
     }
-
 `;
 
 export default GlobalStyle;

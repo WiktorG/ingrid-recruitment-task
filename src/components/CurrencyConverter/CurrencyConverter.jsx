@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
     currencyRatesRequest,
-    currencyRatesError,
     setConvertToCurrency,
 } from '~/redux/actions/currenciesActions';
 import {

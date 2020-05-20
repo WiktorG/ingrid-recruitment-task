@@ -7,7 +7,7 @@ import GlobalStyles from '~/styled/GlobalStyles';
 import store from '~/redux/store';
 
 import CurrencyConverter from '~/components/CurrencyConverter/CurrencyConverter';
-import CurrencyTimeline from '~/components/CurrencyTimeline/CurrencyTimeline';
+import CurrencyHistory from '~/components/CurrencyHistory/CurrencyHistory';
 import Footer from '~/components/Footer/Footer';
 
 const App = () => (
@@ -15,7 +15,7 @@ const App = () => (
         <ThemeProvider theme={theme}>
             <GlobalStyles />
             <CurrencyConverter />
-            <CurrencyTimeline />
+            <CurrencyHistory />
             <Footer />
         </ThemeProvider>
     </Provider>

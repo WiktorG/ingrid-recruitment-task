@@ -6,7 +6,7 @@ import colors from '~/utilities/colors';
 import Container from '~/components/Container/Container';
 import DatePicker from '~/components/DatePicker/DatePicker';
 
-export const StyledCurrencyTimeline = styled(Container)`
+export const StyledCurrencyHistory = styled(Container)`
     align-items: center;
     transition: all 0.3s ease;
     margin-top: 10px;

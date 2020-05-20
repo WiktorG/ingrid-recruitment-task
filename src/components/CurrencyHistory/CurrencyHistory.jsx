@@ -4,21 +4,21 @@ import dateHelper from '~/helpers/dateHelper';
 
 import { currencyHistoryRequest } from '~/redux/actions/currenciesActions';
 import {
-    currencyTimeline as currencyTimelineSelector,
+    currencyHistory as currencyHistorySelector,
 } from '~/redux/selectors/currenciesSelectors';
 
 import {
-    StyledCurrencyTimeline,
+    StyledCurrencyHistory,
     StyledTitle,
     StyledForm,
     StyledDatePicker,
     StyledIconHolder,
     StyledArrow,
-} from './CurrencyTimeline.styled';
+} from './CurrencyHistory.styled';
 
 const CurrencyUpdate = () => {
     const dispatch = useDispatch();
-    const { base, against, ...currencyTimeline } = useSelector(currencyTimelineSelector);
+    const { base, against, ...currencyHistory } = useSelector(currencyHistorySelector);
     const [dateFrom, setDateFrom] = useState(undefined);
     const [dateTo, setDateTo] = useState(undefined);
 
@@ -26,8 +26,8 @@ const CurrencyUpdate = () => {
         if (
             dateFrom !== undefined
             && dateTo !== undefined
-            && dateFrom !== currencyTimeline.dateFrom
-            && dateTo !== currencyTimeline.dateTo
+            && dateFrom !== currencyHistory.dateFrom
+            && dateTo !== currencyHistory.dateTo
         ) {
             dispatch(currencyHistoryRequest({
                 dateFrom: dateHelper(dateFrom),
@@ -40,8 +40,8 @@ const CurrencyUpdate = () => {
     }, [dateFrom, dateTo, base, against, dispatch]);
 
     return (
-        <StyledCurrencyTimeline>
-            <StyledTitle>Currency timeline</StyledTitle>
+        <StyledCurrencyHistory>
+            <StyledTitle>Currency History</StyledTitle>
             <StyledForm>
                 <StyledDatePicker
                     placeholder="Date from"
@@ -60,7 +60,7 @@ const CurrencyUpdate = () => {
                     minDate={dateFrom || new Date('1999-01-04')}
                 />
             </StyledForm>
-        </StyledCurrencyTimeline>
+        </StyledCurrencyHistory>
     );
 };
 
