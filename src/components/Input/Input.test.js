@@ -5,7 +5,7 @@ import { renderWithThemeProvider } from '~/helpers/testHelpers';
 import Input from './Input';
 
 test('component should render', async () => {
-    renderWithThemeProvider(<Input />);
+    renderWithThemeProvider(<Input name="test" />);
     const inputNode = screen.getByTestId('Input');
     expect(inputNode).toBeInTheDocument();
 });

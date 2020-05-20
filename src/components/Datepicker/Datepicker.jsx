@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { isValidDate } from '~/helpers/dateHelpers';
+
 import {
     StyledWrapper,
     StyledPlaceholder,
@@ -16,8 +18,6 @@ const DatePicker = ({
     minDate,
     maxDate,
 }) => {
-    // eslint-disable-next-line no-restricted-globals
-    const isValidDate = (date) => date instanceof Date && !isNaN(date);
     const validatedValue = isValidDate(new Date(value)) ? new Date(value) : undefined;
     return (
         <StyledWrapper

@@ -47,7 +47,6 @@ const CurrencyHistory = () => {
                 against,
             }));
         }
-        // eslint-disable-next-line 
     }, [dateFrom, dateTo, base, against, dispatch]);
 
 
@@ -60,6 +59,7 @@ const CurrencyHistory = () => {
             </StyledTitle>
             <StyledForm>
                 <StyledDatePicker
+                    customTestId="DateFrom"
                     placeholder="Date from"
                     value={new Date(dateFrom)}
                     onChange={(date) => setDateFrom(date)}
@@ -70,6 +70,7 @@ const CurrencyHistory = () => {
                     <StyledArrow />
                 </StyledIconHolder>
                 <StyledDatePicker
+                    customTestId="DateTo"
                     placeholder="Date to"
                     value={new Date(dateTo)}
                     onChange={(date) => setDateTo(date)}

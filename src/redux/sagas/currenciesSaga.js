@@ -1,6 +1,6 @@
 import { put, call, select } from 'redux-saga/effects';
 import api from '~/etc/api';
-import dateHelper from '~/helpers/dateHelper';
+import { formatDate } from '~/helpers/dateHelpers';
 
 import {
     currenciesSymbols as currenciesSymbolsSelector,
@@ -41,8 +41,8 @@ export function* currencyHistorySaga({
 }) {
     try {
         const { data } = yield call(api.currencies.history, {
-            dateFrom: dateHelper(dateFrom),
-            dateTo: dateHelper(dateTo),
+            dateFrom: formatDate(dateFrom),
+            dateTo: formatDate(dateTo),
             against,
             base,
         });
