@@ -60,4 +60,3 @@ const CurrencyGraph = () => {
 };
 
 export default CurrencyGraph;
-
