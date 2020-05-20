@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import DatePicker from 'react-date-picker';
+import fonts from '~/utilities/fonts';
 import screens from '~/utilities/screens';
 import colors from '~/utilities/colors';
 
@@ -29,7 +30,7 @@ export const StyledDatePicker = styled(DatePicker)`
     font-size: 0.9em;
     outline: none;
     width: 100%;
-    font-family: 'Montserrat', Arial;
+    font-family: ${fonts.default};
     @media ${screens.mobileXL} {
         font-size: 1em;
     }

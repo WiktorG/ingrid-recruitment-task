@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import fonts from '~/utilities/fonts';
 import colors from '~/utilities/colors';
 
 const GlobalStyle = createGlobalStyle`
@@ -12,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 16px;
         margin: 0;
         padding: 0;
-        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: ${fonts.default};
     }
 
     input {
@@ -26,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
         }
         
         &::placeholder {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: ${fonts.default};
         }
     }
 

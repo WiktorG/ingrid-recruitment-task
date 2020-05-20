@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import fonts from '~/utilities/fonts';
 import screens from '~/utilities/screens';
 import colors from '~/utilities/colors';
 
@@ -14,7 +15,7 @@ export const StyledInput = styled.input`
     font-size: 0.9em;
     outline: none;
     &::placeholder {
-        font-family: 'Montserrat';
+        font-family: ${fonts.default};
         font-size: 0.9em;
         color: ${colors.font};
         
