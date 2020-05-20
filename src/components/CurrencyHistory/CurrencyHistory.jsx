@@ -15,6 +15,8 @@ import {
     StyledDatePicker,
     StyledIconHolder,
     StyledArrow,
+    StyledInfoWrapper,
+    StyledError,
 } from './CurrencyHistory.styled';
 
 const CurrencyHistory = () => {
@@ -73,6 +75,13 @@ const CurrencyHistory = () => {
                     minDate={new Date(dateFrom) || new Date('1999-01-04')}
                 />
             </StyledForm>
+            {error && (
+                <StyledInfoWrapper>
+                    <StyledError>
+                        {error}
+                    </StyledError>
+                </StyledInfoWrapper>
+            )}
             <CurrencyInfo isVisible={(isInfoVisible && !error)} />
         </StyledCurrencyHistory>
     );

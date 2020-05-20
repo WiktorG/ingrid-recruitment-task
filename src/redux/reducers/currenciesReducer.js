@@ -94,6 +94,7 @@ const currenciesReducer = (state = initialState, action) => {
                 isPending: true,
                 dateFrom: action.dateFrom,
                 dateTo: action.dateTo,
+                error: false,
             },
         };
     case CURRENCY_HISTORY_SUCCESS:
@@ -104,6 +105,7 @@ const currenciesReducer = (state = initialState, action) => {
                 isPending: false,
                 isInfoVisible: true,
                 rates: [...action.rates],
+                error: false,
             },
         };
     case CURRENCY_HISTORY_ERROR:

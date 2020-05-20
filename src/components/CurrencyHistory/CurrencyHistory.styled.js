@@ -95,17 +95,5 @@ export const StyledError = styled.span`
     margin-top: 5px;
     @media ${screens.mobileXL} {
         margin-top: 0;
-        text-align: left;
-    }
-`;
-
-export const StyledRate = styled.span`
-    text-align: center;
-    font-weight: bold;
-    margin-top: 5px;
-    @media ${screens.mobileXL} {
-        margin-top: 0;
-        margin-left: auto;
-        text-align: right;
     }
 `;
