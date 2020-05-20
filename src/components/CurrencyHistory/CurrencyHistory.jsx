@@ -25,6 +25,7 @@ const CurrencyHistory = () => {
         against,
         isPending,
         isInfoVisible,
+        error,
         ...currencyHistory
     } = useSelector(currencyHistorySelector);
     const [dateFrom, setDateFrom] = useState(undefined);
@@ -74,7 +75,7 @@ const CurrencyHistory = () => {
                     minDate={dateFrom || new Date('1999-01-04')}
                 />
             </StyledForm>
-            {(isInfoVisible) && <CurrencyInfo />}
+            {(isInfoVisible && !error) && <CurrencyInfo />}
         </StyledCurrencyHistory>
     );
 };
