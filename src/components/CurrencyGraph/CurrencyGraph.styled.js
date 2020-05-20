@@ -1,5 +1,13 @@
 import styled from 'styled-components';
+import { XYPlot } from 'react-vis';
 
 export const StyledCurrencyGraph = styled.div`
-    margin-top: 30px;
+    display: flex;
+    margin-top: 40px;
+    width: calc(100% - 50px);
+    min-height: 150px;
+    transform: translateX(-10px);
+    & .recharts-cartesian-axis-tick-value {
+        font-size: 0.9em;
+    }
 `;

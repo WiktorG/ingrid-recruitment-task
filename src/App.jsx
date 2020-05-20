@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import theme from '~/styled/theme';
 import GlobalStyles from '~/styled/GlobalStyles';
+import 'react-vis/dist/style.css';
 
 import store from '~/redux/store';
 
