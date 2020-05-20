@@ -9,3 +9,9 @@ test('component should render', async () => {
     const converterNode = screen.getByTestId('CurrencyConverter');
     expect(converterNode).toBeInTheDocument();
 });
+
+test('component should calculate results when user inputs valie', async () => {
+    renderWithThemeAndReduxProvider(<CurrencyConverter />);
+    const converterNode = screen.getByTestId('CurrencyChart');
+    expect(converterNode).toBeInTheDocument();
+});

@@ -113,6 +113,7 @@ const CurrencyConverter = () => {
                         value={initialAmount}
                         onChange={(e) => handleInitialAmountChange(e.target.value)}
                         onBlur={() => handleBlur(initialAmount, handleInitialAmountChange)}
+                        customTestId="InitialInput"
                     />
                 </StyledInputWrapper>
                 <StyledArrowWrapper>
@@ -130,6 +131,7 @@ const CurrencyConverter = () => {
                         value={convertedAmount}
                         onChange={(e) => handleConvertedAmountChange(e.target.value)}
                         onBlur={() => handleBlur(convertedAmount, handleInitialAmountChange)}
+                        customTestId="ConvertedInput"
                     />
                 </StyledInputWrapper>
             </StyledForm>

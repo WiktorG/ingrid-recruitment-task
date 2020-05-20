@@ -12,9 +12,10 @@ const Input = ({
     onBlur,
     onChange,
     type,
+    customTestId,
 }) => (
     <StyledInput
-        data-testid="Input"
+        data-testid={customTestId}
         value={value}
         onBlur={onBlur}
         onChange={onChange}
@@ -31,6 +32,7 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     type: PropTypes.oneOf(['text', 'number', 'password']),
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    customTestId: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -40,6 +42,7 @@ Input.defaultProps = {
     placeholder: '',
     type: 'text',
     value: '',
+    customTestId: 'Input',
 };
 
 export default Input;
