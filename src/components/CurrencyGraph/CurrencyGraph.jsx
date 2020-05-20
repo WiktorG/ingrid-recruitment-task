@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import {
     ResponsiveContainer,
     LineChart,
@@ -8,7 +8,6 @@ import {
     YAxis,
     Line,
 } from 'recharts';
-import { scalePow, scaleLog } from 'd3-scale';
 import colors from '~/utilities/colors';
 
 import {

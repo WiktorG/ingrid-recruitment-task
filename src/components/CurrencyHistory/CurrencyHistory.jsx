@@ -20,7 +20,13 @@ import {
 
 const CurrencyHistory = () => {
     const dispatch = useDispatch();
-    const { base, against, isPending, isGraphVisible, ...currencyHistory } = useSelector(currencyHistorySelector);
+    const {
+        base,
+        against,
+        isPending,
+        isGraphVisible,
+        ...currencyHistory
+    } = useSelector(currencyHistorySelector);
     const [dateFrom, setDateFrom] = useState(undefined);
     const [dateTo, setDateTo] = useState(undefined);
 
