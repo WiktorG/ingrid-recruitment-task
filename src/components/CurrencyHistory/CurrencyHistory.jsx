@@ -7,6 +7,8 @@ import {
     currencyHistory as currencyHistorySelector,
 } from '~/redux/selectors/currenciesSelectors';
 
+import CurrencyGraph from '~/components/CurrencyGraph/CurrencyGraph';
+
 import {
     StyledCurrencyHistory,
     StyledTitle,
@@ -18,7 +20,7 @@ import {
 
 const CurrencyHistory = () => {
     const dispatch = useDispatch();
-    const { base, against, ...currencyHistory } = useSelector(currencyHistorySelector);
+    const { base, against, isPending, isGraphVisible, ...currencyHistory } = useSelector(currencyHistorySelector);
     const [dateFrom, setDateFrom] = useState(undefined);
     const [dateTo, setDateTo] = useState(undefined);
 
@@ -64,6 +66,7 @@ const CurrencyHistory = () => {
                     minDate={dateFrom || new Date('1999-01-04')}
                 />
             </StyledForm>
+            {(isGraphVisible) && <CurrencyGraph />}
         </StyledCurrencyHistory>
     );
 };

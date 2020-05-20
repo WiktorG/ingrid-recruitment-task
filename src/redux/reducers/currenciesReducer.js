@@ -21,6 +21,7 @@ const initialState = {
     symbols: ['PLN', 'EUR'],
     history: {
         isPending: false,
+        isGraphVisible: false,
         error: false,
         dateFrom: '',
         dateTo: '',
@@ -101,6 +102,7 @@ const currenciesReducer = (state = initialState, action) => {
             history: {
                 ...state.history,
                 isPending: false,
+                isGraphVisible: true,
                 rates: [...action.rates],
             },
         };
@@ -110,6 +112,7 @@ const currenciesReducer = (state = initialState, action) => {
             history: {
                 ...state.history,
                 isPending: false,
+                isGraphVisible: false,
                 rates: [],
                 error: action.error,
             },
