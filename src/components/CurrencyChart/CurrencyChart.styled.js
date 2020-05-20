@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import screens from '~/utilities/screens';
 
-export const StyledCurrencyGraph = styled.div`
+export const StyledCurrencyChart = styled.div`
     display: flex;
     margin-top: 30px;
     width: 110%;

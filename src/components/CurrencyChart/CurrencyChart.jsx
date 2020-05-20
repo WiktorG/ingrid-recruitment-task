@@ -15,13 +15,15 @@ import {
 } from '~/redux/selectors/currenciesSelectors';
 
 import {
-    StyledCurrencyGraph,
+    StyledCurrencyChart,
 } from './CurrencyChart.styled';
 
-const CurrencyGraph = () => {
+const CurrencyChart = () => {
     const { rates } = useSelector(currencyHistorySelector);
     return (
-        <StyledCurrencyGraph>
+        <StyledCurrencyChart
+            data-testid="CurrencyChart"
+        >
             <ResponsiveContainer
                 width="100%"
                 height={150}
@@ -54,8 +56,8 @@ const CurrencyGraph = () => {
                     />
                 </LineChart>
             </ResponsiveContainer>
-        </StyledCurrencyGraph>
+        </StyledCurrencyChart>
     );
 };
 
-export default CurrencyGraph;
+export default CurrencyChart;
