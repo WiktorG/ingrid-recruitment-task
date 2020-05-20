@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { XYPlot } from 'react-vis';
 
 export const StyledCurrencyGraph = styled.div`
     display: flex;
