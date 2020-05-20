@@ -41,10 +41,9 @@ const CurrencyConverter = () => {
     const [convertedAmount, setConvertedAmount] = useState(0);
     const [formError, setFormError] = useState(false);
 
-    console.log(rates);
-
     useEffect(() => {
-        //dispatch(currencyRatesRequest('PLN'));
+        dispatch(currencyRatesRequest(base));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch]);
 
     const parseMoney = (amount) => {
