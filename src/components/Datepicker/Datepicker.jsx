@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { isValidDate } from '~/helpers/dateHelpers';
-
 import {
     StyledWrapper,
     StyledPlaceholder,
@@ -17,34 +15,31 @@ const DatePicker = ({
     onChange,
     minDate,
     maxDate,
-}) => {
-    const validatedValue = isValidDate(new Date(value)) ? new Date(value) : undefined;
-    return (
-        <StyledWrapper
-            className={className}
-            data-testid="DatePicker"
-        >
-            <StyledPlaceholder>
-                {placeholder}
-            </StyledPlaceholder>
-            <StyledDatePicker
-                className="custom-date-picker"
-                calendarClassName="custom-calendar"
-                value={validatedValue}
-                onBlur={onBlur}
-                onChange={onChange}
-                minDate={minDate}
-                maxDate={maxDate}
-                format="y/MM/dd"
-                dayPlaceholder="dd"
-                monthPlaceholder="mm"
-                yearPlaceholder="yyyy"
-                showLeadingZeros
-                clearIcon={null}
-            />
-        </StyledWrapper>
-    );
-};
+}) => (
+    <StyledWrapper
+        className={className}
+        data-testid="DatePicker"
+    >
+        <StyledPlaceholder>
+            {placeholder}
+        </StyledPlaceholder>
+        <StyledDatePicker
+            className="custom-date-picker"
+            calendarClassName="custom-calendar"
+            value={value}
+            onBlur={onBlur}
+            onChange={onChange}
+            minDate={minDate}
+            maxDate={maxDate}
+            format="y/MM/dd"
+            dayPlaceholder="dd"
+            monthPlaceholder="mm"
+            yearPlaceholder="yyyy"
+            showLeadingZeros
+            clearIcon={null}
+        />
+    </StyledWrapper>
+);
 
 DatePicker.propTypes = {
     className: PropTypes.string,

@@ -4,5 +4,3 @@ export const formatDate = (date) => {
     const day = `0${(new Date(date).getDate())}`.slice(-2);
     return `${year}-${month}-${day}`;
 };
-
-export const isValidDate = (date) => date instanceof Date && !isNaN(date); //TODO: Refactor

@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isValidDate } from '~/helpers/dateHelpers';
 
 import {
     setHistoryDateFrom,
@@ -34,9 +33,14 @@ const CurrencyHistory = () => {
         dateFrom,
         dateTo,
     } = useSelector(currencyHistorySelector);
+    const [useOfflineData, setUseOfflineData] = useState(true);
 
     useEffect(() => {
-        if (dateFrom !== '' && dateTo !== '') {
+        setUseOfflineData(false);
+    }, []);
+
+    useEffect(() => {
+        if (dateFrom !== undefined && dateTo !== undefined && !useOfflineData) {
             dispatch(currencyHistoryRequest({
                 dateFrom,
                 dateTo,
@@ -45,6 +49,7 @@ const CurrencyHistory = () => {
             }));
         }
     }, [
+        useOfflineData,
         dateFrom,
         dateTo,
         base,
@@ -52,9 +57,8 @@ const CurrencyHistory = () => {
         dispatch,
     ]);
 
-    const minDate = isValidDate(dateFrom) ? new Date(dateFrom) : new Date('1999-01-04');
-    const maxDate = isValidDate(dateTo) ? new Date(dateTo) : new Date();
-
+    const minDate = dateFrom !== undefined ? new Date(dateFrom) : new Date('1999-01-04');
+    const maxDate = dateTo !== undefined ? new Date(dateTo) : new Date();
     return (
         <StyledCurrencyHistory>
             <StyledTitle>
@@ -64,7 +68,7 @@ const CurrencyHistory = () => {
                 <StyledDatePicker
                     customTestId="DateFrom"
                     placeholder="Date from"
-                    value={dateFrom}
+                    value={dateFrom !== undefined ? new Date(dateFrom) : undefined}
                     onChange={(date) => dispatch(setHistoryDateFrom(date))}
                     minDate={new Date('1999-01-04')}
                     maxDate={maxDate}
@@ -75,7 +79,7 @@ const CurrencyHistory = () => {
                 <StyledDatePicker
                     customTestId="DateTo"
                     placeholder="Date to"
-                    value={dateTo}
+                    value={dateTo !== undefined ? new Date(dateFrom) : undefined}
                     onChange={(date) => dispatch(setHistoryDateTo(date))}
                     minDate={minDate}
                     maxDate={new Date()}
