@@ -72,7 +72,7 @@ const CurrencyHistory = () => {
                     minDate={dateFrom || new Date('1999-01-04')}
                 />
             </StyledForm>
-            {(isGraphVisible) && <CurrencyGraph />}
+            {(isChartVisible) && <CurrencyGraph />}
         </StyledCurrencyHistory>
     );
 };

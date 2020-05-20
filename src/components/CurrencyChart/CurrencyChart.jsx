@@ -16,7 +16,7 @@ import {
 
 import {
     StyledCurrencyGraph,
-} from './CurrencyGraph.styled';
+} from './CurrencyChart.styled';
 
 const CurrencyGraph = () => {
     const { rates } = useSelector(currencyHistorySelector);
@@ -44,7 +44,6 @@ const CurrencyGraph = () => {
                             top: 5,
                             bottom: 5,
                         }}
-                        width={60}
                     />
                     <Tooltip />
                     <Line
