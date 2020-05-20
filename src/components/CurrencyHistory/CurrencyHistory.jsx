@@ -38,7 +38,6 @@ const CurrencyHistory = () => {
         if (
             dateFrom !== ''
             && dateTo !== ''
-            && (dateFrom !== currencyHistory.dateFrom || dateTo !== currencyHistory.dateTo)
         ) {
             dispatch(currencyHistoryRequest({
                 dateFrom,
