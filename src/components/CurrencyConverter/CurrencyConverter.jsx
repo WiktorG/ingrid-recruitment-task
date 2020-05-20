@@ -99,7 +99,7 @@ const CurrencyConverter = () => {
         <StyledCurrencyConverter
             customTestId="CurrencyConverter"
         >
-            <StyledTitle>Currency Converter</StyledTitle>
+            <StyledTitle>Currency converter</StyledTitle>
             <StyledForm>
                 <StyledInputWrapper>
                     <Select

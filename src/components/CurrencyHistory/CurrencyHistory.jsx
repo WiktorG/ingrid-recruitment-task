@@ -7,7 +7,7 @@ import {
     currencyHistory as currencyHistorySelector,
 } from '~/redux/selectors/currenciesSelectors';
 
-import CurrencyGraph from '~/components/CurrencyGraph/CurrencyGraph';
+import CurrencyChart from '~/components/CurrencyChart/CurrencyChart';
 
 import {
     StyledCurrencyHistory,
@@ -53,7 +53,9 @@ const CurrencyHistory = () => {
         <StyledCurrencyHistory
             customTestId="CurrencyHistory"
         >
-            <StyledTitle>Currency History</StyledTitle>
+            <StyledTitle>
+                {`${base} to ${against} history`}
+            </StyledTitle>
             <StyledForm>
                 <StyledDatePicker
                     placeholder="Date from"
@@ -72,7 +74,7 @@ const CurrencyHistory = () => {
                     minDate={dateFrom || new Date('1999-01-04')}
                 />
             </StyledForm>
-            {(isChartVisible) && <CurrencyGraph />}
+            {(isChartVisible) && <CurrencyChart />}
         </StyledCurrencyHistory>
     );
 };
