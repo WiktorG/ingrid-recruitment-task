@@ -15,10 +15,10 @@ const App = () => (
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
             <ThemeProvider theme={theme}>
-                <GlobalStyles />
                 <CurrencyConverter />
                 <CurrencyHistory />
                 <Footer />
+                <GlobalStyles />
             </ThemeProvider>
         </PersistGate>
     </Provider>
