@@ -79,7 +79,7 @@ const CurrencyHistory = () => {
                 <StyledDatePicker
                     customTestId="DateTo"
                     placeholder="Date to"
-                    value={dateTo !== undefined ? new Date(dateFrom) : undefined}
+                    value={dateTo !== undefined ? new Date(dateTo) : undefined}
                     onChange={(date) => dispatch(setHistoryDateTo(date))}
                     minDate={minDate}
                     maxDate={new Date()}
