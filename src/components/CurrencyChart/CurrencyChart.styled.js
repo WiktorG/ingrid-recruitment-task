@@ -6,13 +6,14 @@ export const StyledCurrencyGraph = styled.div`
     margin-top: 30px;
     width: 110%;
     min-height: 150px;
-    transform: translateX(-20px);
+    transform: translateX(-40px);
     & .recharts-cartesian-axis-tick-value {
         font-size: 0.9em;
     }
     @media ${screens.mobileL} {
         width: 100%;
-        transform: translateX(-10px);
+        transform: translateX(-23px);
+
     }
     @media ${screens.mobileXL} {
         margin-top: 40px;

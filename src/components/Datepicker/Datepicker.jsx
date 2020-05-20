@@ -15,31 +15,35 @@ const DatePicker = ({
     onChange,
     minDate,
     maxDate,
-}) => (
-    <StyledWrapper
-        className={className}
-    >
-        <StyledPlaceholder>
-            {placeholder}
-        </StyledPlaceholder>
-        <StyledDatePicker
-            className="custom-date-picker"
-            calendarClassName="custom-calendar"
-            value={value}
-            onBlur={onBlur}
-            onChange={onChange}
-            minDate={minDate}
-            maxDate={maxDate}
-            format="y/MM/dd"
-            dayPlaceholder="dd"
-            monthPlaceholder="mm"
-            yearPlaceholder="yyyy"
-            showLeadingZeros
-            clearIcon={null}
-        />
-    </StyledWrapper>
-
-);
+}) => {
+    // eslint-disable-next-line no-restricted-globals
+    const isValidDate = (date) => date instanceof Date && !isNaN(date);
+    const validatedValue = isValidDate(new Date(value)) ? new Date(value) : undefined;
+    return (
+        <StyledWrapper
+            className={className}
+        >
+            <StyledPlaceholder>
+                {placeholder}
+            </StyledPlaceholder>
+            <StyledDatePicker
+                className="custom-date-picker"
+                calendarClassName="custom-calendar"
+                value={validatedValue}
+                onBlur={onBlur}
+                onChange={onChange}
+                minDate={minDate}
+                maxDate={maxDate}
+                format="y/MM/dd"
+                dayPlaceholder="dd"
+                monthPlaceholder="mm"
+                yearPlaceholder="yyyy"
+                showLeadingZeros
+                clearIcon={null}
+            />
+        </StyledWrapper>
+    );
+};
 
 DatePicker.propTypes = {
     className: PropTypes.string,
