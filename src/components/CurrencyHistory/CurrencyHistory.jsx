@@ -37,7 +37,6 @@ const CurrencyHistory = () => {
         if (
             dateFrom !== ''
             && dateTo !== ''
-            && (dateFrom !== currencyHistory.dateFrom || dateTo !== currencyHistory.dateTo)
         ) {
             dispatch(currencyHistoryRequest({
                 dateFrom,
@@ -52,21 +51,7 @@ const CurrencyHistory = () => {
         base,
         against,
         dispatch,
-        currencyHistory.dateFrom,
-        currencyHistory.dateTo,
     ]);
-
-    useEffect(() => {
-        if (dateFrom !== '' && dateFrom !== '') {
-            dispatch(currencyHistoryRequest({
-                dateFrom,
-                dateTo,
-                base,
-                against,
-            }));
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [base, against]);
 
     const minDate = isValidDate(dateFrom) ? new Date(dateFrom) : new Date('1999-01-04');
     const maxDate = isValidDate(dateTo) ? new Date(dateTo) : new Date();
