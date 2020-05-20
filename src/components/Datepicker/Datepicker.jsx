@@ -22,6 +22,7 @@ const DatePicker = ({
     return (
         <StyledWrapper
             className={className}
+            data-testid="DatePicker"
         >
             <StyledPlaceholder>
                 {placeholder}

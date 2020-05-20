@@ -20,11 +20,13 @@ const CurrencyInfo = ({ isVisible }) => {
         against,
     } = useSelector(currencyHistorySelector);
 
-    const differenceInTime = isVisible
+    const differenceInTime = isVisible && rates[0]
         ? (rates[0].rate - rates[rates.length - 1].rate).toFixed(4) : 0;
 
     return isVisible && (
-        <StyledCurrencyInfo>
+        <StyledCurrencyInfo
+            data-testid="CurrencyInfo"
+        >
             <CurrencyChart />
             <StyledInfoWrapper>
                 {`Course of ${base} in following time  has changed by ${differenceInTime} ${against}`}
