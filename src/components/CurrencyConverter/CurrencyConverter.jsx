@@ -43,8 +43,7 @@ const CurrencyConverter = () => {
 
     useEffect(() => {
         dispatch(currencyRatesRequest(base));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [dispatch]);
+    }, [dispatch, base]);
 
     const parseMoney = (amount) => {
         setFormError(false);

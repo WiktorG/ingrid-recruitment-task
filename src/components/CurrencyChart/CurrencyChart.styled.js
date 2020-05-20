@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import screens from '~/utilities/screens';
 
+export const lineChartMargin = {
+    right: 30,
+    left: 30,
+    top: 5,
+    bottom: 5,
+};
+
 export const StyledCurrencyChart = styled.div`
     display: flex;
     margin-top: 30px;

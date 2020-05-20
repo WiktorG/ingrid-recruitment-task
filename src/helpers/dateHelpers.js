@@ -5,5 +5,4 @@ export const formatDate = (date) => {
     return `${year}-${month}-${day}`;
 };
 
-// eslint-disable-next-line no-restricted-globals
-export const isValidDate = (date) => date instanceof Date && !isNaN(date);
+export const isValidDate = (date) => date instanceof Date && typeof date === 'number';

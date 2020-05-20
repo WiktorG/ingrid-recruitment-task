@@ -16,6 +16,7 @@ import {
 
 import {
     StyledCurrencyChart,
+    lineChartMargin,
 } from './CurrencyChart.styled';
 
 const CurrencyChart = () => {
@@ -30,12 +31,7 @@ const CurrencyChart = () => {
             >
                 <LineChart
                     data={rates}
-                    margin={{
-                        right: 30,
-                        left: 30,
-                        top: 5,
-                        bottom: 5,
-                    }}
+                    margin={lineChartMargin}
                 >
                     <XAxis dataKey="date" />
                     <YAxis
