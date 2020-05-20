@@ -39,6 +39,8 @@ const CurrencyHistory = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dateFrom, dateTo, base, against, dispatch]);
 
+    // TODO: Prevent from selecting the same day (horizontal graph)
+
     return (
         <StyledCurrencyHistory>
             <StyledTitle>Currency History</StyledTitle>
