@@ -56,6 +56,16 @@ const CurrencyHistory = () => {
         currencyHistory.dateTo,
     ]);
 
+    useEffect(() => {
+        dispatch(currencyHistoryRequest({
+            dateFrom,
+            dateTo,
+            base,
+            against,
+        }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [base, against]);
+
     const minDate = isValidDate(dateFrom) ? new Date(dateFrom) : new Date('1999-01-04');
     const maxDate = isValidDate(dateTo) ? new Date(dateTo) : new Date();
 
