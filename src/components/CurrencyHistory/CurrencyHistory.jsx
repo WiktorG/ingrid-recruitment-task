@@ -33,11 +33,10 @@ const CurrencyHistory = () => {
     const [dateTo, setDateTo] = useState(currencyHistory.dateTo);
 
     useEffect(() => {
-        // Check whether dates in inputs are different
-        // than dates in store to prevent unwanted request
         if (
             dateFrom !== ''
             && dateTo !== ''
+            && (dateFrom !== currencyHistory.dateFrom || dateTo !== currencyHistory.dateTo)
         ) {
             dispatch(currencyHistoryRequest({
                 dateFrom,
