@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import dateHelper from '~/helpers/dateHelper';
 
 import { currencyHistoryRequest } from '~/redux/actions/currenciesActions';
 import {
@@ -27,8 +28,8 @@ const CurrencyHistory = () => {
         error,
         ...currencyHistory
     } = useSelector(currencyHistorySelector);
-    const [dateFrom, setDateFrom] = useState(new Date(currencyHistory.dateFrom) || undefined);
-    const [dateTo, setDateTo] = useState(new Date(currencyHistory.dateTo) || undefined);
+    const [dateFrom, setDateFrom] = useState(undefined);
+    const [dateTo, setDateTo] = useState(undefined);
 
     useEffect(() => {
         if (
@@ -38,8 +39,8 @@ const CurrencyHistory = () => {
             && dateTo !== currencyHistory.dateTo
         ) {
             dispatch(currencyHistoryRequest({
-                dateFrom,
-                dateTo,
+                dateFrom: dateHelper(dateFrom),
+                dateTo: dateHelper(dateTo),
                 base,
                 against,
             }));

@@ -41,8 +41,10 @@ const CurrencyConverter = () => {
     const [convertedAmount, setConvertedAmount] = useState(0);
     const [formError, setFormError] = useState(false);
 
+    console.log(rates);
+
     useEffect(() => {
-        dispatch(currencyRatesRequest('PLN'));
+        //dispatch(currencyRatesRequest('PLN'));
     }, [dispatch]);
 
     const parseMoney = (amount) => {
@@ -103,6 +105,7 @@ const CurrencyConverter = () => {
             <StyledForm>
                 <StyledInputWrapper>
                     <Select
+                        defaultValue={{ label: base, value: base }}
                         options={initialSelectOptions}
                         onChange={handleInitialSymbolChange}
                     />
@@ -119,6 +122,7 @@ const CurrencyConverter = () => {
                 </StyledArrowWrapper>
                 <StyledInputWrapper>
                     <Select
+                        defaultValue={{ label: convertTo, value: convertTo }}
                         options={convertedSelectOptions}
                         onChange={handleConvertToSymbolChange}
                     />
