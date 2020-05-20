@@ -75,7 +75,7 @@ const CurrencyHistory = () => {
                     minDate={dateFrom || new Date('1999-01-04')}
                 />
             </StyledForm>
-            {(isInfoVisible && !error) && <CurrencyInfo />}
+            <CurrencyInfo isVisible={(isInfoVisible && !error)} />
         </StyledCurrencyHistory>
     );
 };
