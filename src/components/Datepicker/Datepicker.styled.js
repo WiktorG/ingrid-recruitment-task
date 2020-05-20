@@ -28,8 +28,8 @@ export const StyledDatePicker = styled(DatePicker)`
     -webkit-appearance: none;
     font-size: 0.9em;
     outline: none;
-    font-family: 'Montserrat';
     width: 100%;
+    font-family: 'Montserrat', Arial;
     @media ${screens.mobileXL} {
         font-size: 1em;
     }
@@ -40,7 +40,6 @@ export const StyledDatePicker = styled(DatePicker)`
     }
 
     & .react-date-picker__wrapper {
-        font-family: 'Montserrat';
         min-height: 46px;
         width: 100%;
         background-color: ${colors.white};
@@ -65,10 +64,6 @@ export const StyledDatePicker = styled(DatePicker)`
     & .react-date-picker__button:enabled:hover .react-date-picker__button__icon, 
     & .react-date-picker__button:enabled:focus .react-date-picker__button__icon {
         stroke: ${colors.green};
-    }
-
-    & .custom-calendar, & .custom-calendar * {
-        font-family: 'Montserrat';
     }
 
     & .custom-calendar .react-calendar__tile--now {

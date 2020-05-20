@@ -13,7 +13,10 @@ export const StyledSelect = styled(ReactSelect)`
     max-width: 96px;
     min-width: 96px;
     outline: none;
-
+    height: 42px;
+    @media ${screens.mobileXL} {
+        height: 46px;
+    }
     & * { 
         outline: none;
     }

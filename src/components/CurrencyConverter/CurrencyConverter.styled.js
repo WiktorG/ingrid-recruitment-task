@@ -45,6 +45,7 @@ export const StyledForm = styled.form`
 
 export const StyledInputWrapper = styled.span`
     display: flex;
+    align-items: center;
     width: 100%;
     @media ${screens.mobileXL} {
         &:nth-last-of-type(1) {
