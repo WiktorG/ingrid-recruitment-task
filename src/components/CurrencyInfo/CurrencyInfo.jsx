@@ -19,8 +19,10 @@ const CurrencyInfo = ({ isVisible }) => {
         base,
         against,
     } = useSelector(currencyHistorySelector);
+
     const differenceInTime = isVisible
         ? (rates[0].rate - rates[rates.length - 1].rate).toFixed(4) : 0;
+
     return isVisible && (
         <StyledCurrencyInfo>
             <CurrencyChart />
