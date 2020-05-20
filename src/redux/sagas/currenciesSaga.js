@@ -40,7 +40,6 @@ export function* currencyHistorySaga({
     against,
 }) {
     try {
-        yield put(currencyHistoryError('Something went wrong - try again later'));
         const { data } = yield call(api.currencies.history, {
             dateFrom: dateHelper(dateFrom),
             dateTo: dateHelper(dateTo),
