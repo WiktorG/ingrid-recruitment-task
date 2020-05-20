@@ -31,11 +31,11 @@ const CurrencyInfo = ({ isVisible }) => {
 };
 
 CurrencyInfo.propTypes = {
-    isInfoVisible: PropTypes.bool,
+    isVisible: PropTypes.bool,
 };
 
 CurrencyInfo.defaultProps = {
-    isInfoVisible: false,
+    isVisible: false,
 };
 
 export default CurrencyInfo;
