@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isValidDate } from '~/helpers/dateHelpers';
 
-import { currencyHistoryRequest } from '~/redux/actions/currenciesActions';
+import {
+    setHistoryDateFrom,
+    setHistoryDateTo,
+    currencyHistoryRequest,
+} from '~/redux/actions/currenciesActions';
 import {
     currencyHistory as currencyHistorySelector,
 } from '~/redux/selectors/currenciesSelectors';
@@ -25,19 +29,14 @@ const CurrencyHistory = () => {
     const {
         base,
         against,
-        isPending,
         isInfoVisible,
         error,
-        ...currencyHistory
+        dateFrom,
+        dateTo,
     } = useSelector(currencyHistorySelector);
-    const [dateFrom, setDateFrom] = useState(currencyHistory.dateFrom);
-    const [dateTo, setDateTo] = useState(currencyHistory.dateTo);
 
     useEffect(() => {
-        if (
-            dateFrom !== ''
-            && dateTo !== ''
-        ) {
+        if (dateFrom !== '' && dateTo !== '') {
             dispatch(currencyHistoryRequest({
                 dateFrom,
                 dateTo,
@@ -65,8 +64,8 @@ const CurrencyHistory = () => {
                 <StyledDatePicker
                     customTestId="DateFrom"
                     placeholder="Date from"
-                    value={new Date(dateFrom)}
-                    onChange={(date) => setDateFrom(date)}
+                    value={dateFrom}
+                    onChange={(date) => dispatch(setHistoryDateFrom(date))}
                     minDate={new Date('1999-01-04')}
                     maxDate={maxDate}
                 />
@@ -76,8 +75,8 @@ const CurrencyHistory = () => {
                 <StyledDatePicker
                     customTestId="DateTo"
                     placeholder="Date to"
-                    value={new Date(dateTo)}
-                    onChange={(date) => setDateTo(date)}
+                    value={dateTo}
+                    onChange={(date) => dispatch(setHistoryDateTo(date))}
                     minDate={minDate}
                     maxDate={new Date()}
                 />

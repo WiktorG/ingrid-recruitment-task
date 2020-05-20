@@ -4,6 +4,8 @@ import {
     CURRENCY_RATES_ERROR,
     SET_CONVERT_TO_CURRENCY,
     SET_CURRENCIES_SYMBOLS,
+    SET_HISTORY_DATE_FROM,
+    SET_HISTORY_DATE_TO,
     CURRENCY_HISTORY_REQUEST,
     CURRENCY_HISTORY_SUCCESS,
     CURRENCY_HISTORY_ERROR,
@@ -86,6 +88,22 @@ const currenciesReducer = (state = initialState, action) => {
         return {
             ...state,
             symbols: [...action.symbols],
+        };
+    case SET_HISTORY_DATE_FROM:
+        return {
+            ...state,
+            history: {
+                ...state.history,
+                dateFrom: action.dateFrom,
+            },
+        };
+    case SET_HISTORY_DATE_TO:
+        return {
+            ...state,
+            history: {
+                ...state.history,
+                dateTo: action.dateTo,
+            },
         };
     case CURRENCY_HISTORY_REQUEST:
         return {
